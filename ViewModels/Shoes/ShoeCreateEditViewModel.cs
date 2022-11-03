@@ -11,5 +11,7 @@ namespace CourseProject.ViewModels.Shoes
         public string Price { get; set; }
         [Required]
         public string BrandId { get; set; }
+        [Required]
+        public string ImageUrl { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model CourseProject.ViewModels.Shoes.AllShoesViewModel;
+﻿@model IEnumerable<CourseProject.ViewModels.Shoes.ShoeDetailsViewModel>;
 
 @{
     ViewData["Title"] = "AllShoes";
@@ -10,7 +10,7 @@
 </p>
 <table class="table">
     <tbody>
-@foreach (var item in Model.Shoes) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 <div class="shoe">

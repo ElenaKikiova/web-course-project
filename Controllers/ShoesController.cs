@@ -1,4 +1,5 @@
 ﻿using CourseProject.Repositories.Abstractions;
+using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,18 +7,17 @@ namespace CourseProject.Controllers
 {
     public class ShoesController : Controller
     {
-        private IShoesRepository shoesRepository;
+        private IShoesService shoesService;
 
-        public ShoesController(IShoesRepository repository)
+        public ShoesController(IShoesService service)
         {
-            this.shoesRepository = repository;
+            this.shoesService = service;
         }
 
         public IActionResult AllShoes()
         {
-            AllShoesViewModel allShoesViewModel = new AllShoesViewModel();
-            allShoesViewModel.Shoes = shoesRepository.GetAll();
-            return View(allShoesViewModel);
+            var list = this.shoesService.GetAll();
+            return View(list);
         }
     }
 }
