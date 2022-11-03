@@ -1,0 +1,30 @@
+﻿@model CourseProject.ViewModels.Shoes.AllShoesViewModel;
+
+@{
+    ViewData["Title"] = "AllShoes";
+}
+<h1>AllShoes</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tbody>
+@foreach (var item in Model.Shoes) {
+        <tr>
+            <td>
+                <div class="shoe">
+                        <img src=@item.ImageUrl />
+                        <div class="title">@item.Name</div>
+                        <div class="price">@item.Price BGN</div>
+                        <div class="actions">
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </div>
+                  </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

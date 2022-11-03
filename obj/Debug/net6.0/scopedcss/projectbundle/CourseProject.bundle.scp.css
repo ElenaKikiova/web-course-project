@@ -47,3 +47,43 @@ button.accept-policy[b-xqnuuovobb] {
   white-space: nowrap;
   line-height: 60px;
 }
+/* _content/CourseProject/Views/Shoes/AllShoes.cshtml.rz.scp.css */
+*[b-6uzpou6ytj] { 
+    box-sizing: border-box;
+}
+
+table[b-6uzpou6ytj] {
+    width: 100vw;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.shoe[b-6uzpou6ytj] {
+    box-shadow: 2px 2px 2px #ccc;
+    display: block;
+    max-width: 150px;
+    margin: 0.25rem;
+    border-radius: 5px;
+}
+
+.shoe img[b-6uzpou6ytj] {
+    max-width: 150px;
+    border-radius: 5px 5px 0 0;
+}
+
+.shoe .title[b-6uzpou6ytj] {
+    padding: 0.25rem;
+    text-align: center
+}
+
+.shoe .price[b-6uzpou6ytj] {
+    padding: 0.25rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: red;
+}
+
+.shoe .actions[b-6uzpou6ytj] {
+    padding: 0.25rem;
+    display: flex;
+}

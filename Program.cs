@@ -1,6 +1,16 @@
+using CourseProject.Repositories;
+using CourseProject.Repositories.Abstractions;
+using CourseProject.Repositories.Implementations;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
+builder.Services.AddDbContext<NoFakeShoesDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IShoesRepository, ShoesRepository>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -13,6 +23,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<NoFakeShoesDbContext>();
+    dataContext.Database.Migrate();
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -23,5 +39,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();

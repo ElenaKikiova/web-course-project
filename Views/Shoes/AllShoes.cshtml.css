@@ -1,0 +1,39 @@
+﻿* { 
+    box-sizing: border-box;
+}
+
+table {
+    width: 100vw;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.shoe {
+    box-shadow: 2px 2px 2px #ccc;
+    display: block;
+    max-width: 150px;
+    margin: 0.25rem;
+    border-radius: 5px;
+}
+
+.shoe img {
+    max-width: 150px;
+    border-radius: 5px 5px 0 0;
+}
+
+.shoe .title {
+    padding: 0.25rem;
+    text-align: center
+}
+
+.shoe .price {
+    padding: 0.25rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: red;
+}
+
+.shoe .actions {
+    padding: 0.25rem;
+    display: flex;
+}
