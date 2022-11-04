@@ -87,3 +87,35 @@ table[b-6uzpou6ytj] {
     padding: 0.25rem;
     display: flex;
 }
+/* _content/CourseProject/Views/Shoes/Details.cshtml.rz.scp.css */
+*[b-2dtl4fwm5k] {
+    box-sizing: border-box;
+}
+
+.shoe[b-2dtl4fwm5k] {
+    box-shadow: 2px 2px 2px #ccc;
+    display: flex;
+    width: 100vw;
+    max-width: 1200px;
+    margin: auto;
+    margin: 0.25rem;
+    border-radius: 5px;
+}
+
+    .shoe img[b-2dtl4fwm5k] {
+        max-width: 450px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .details .title[b-2dtl4fwm5k] {
+        padding: 0.25rem;
+        text-align: center
+    }
+
+    .details .price[b-2dtl4fwm5k] {
+        padding: 0.25rem;
+        text-align: center;
+        font-size: 1.1rem;
+        color: red;
+    }
+

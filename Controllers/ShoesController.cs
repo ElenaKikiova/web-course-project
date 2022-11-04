@@ -19,5 +19,12 @@ namespace CourseProject.Controllers
             var list = this.shoesService.GetAll();
             return View(list);
         }
+        public IActionResult Details(int ShoeId)
+        {
+            var model = this.shoesService.Get(ShoeId);
+            Console.WriteLine("EEE" + model);
+            Console.WriteLine("EEEEEEE" + ShoeId);
+            return View(model);
+        }
     }
 }

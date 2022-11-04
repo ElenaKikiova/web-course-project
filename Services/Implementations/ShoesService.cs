@@ -32,6 +32,8 @@ namespace CourseProject.Services.Implementations
         {
             Shoe shoe = this.shoesRepository.Get(ShoeId);
 
+            Console.WriteLine(shoe);
+
             if (shoe == null)
             {
                 return null;

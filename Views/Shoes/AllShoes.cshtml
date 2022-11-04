@@ -15,14 +15,15 @@
             <td>
                 <div class="shoe">
                         <img src=@item.ImageUrl />
+                        <div class="title">@item.Id</div>
                         <div class="title">@item.Name</div>
                         <div class="price">@item.Price BGN</div>
                         <div class="actions">
                             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { ShoeId=item.Id }) |
                             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                         </div>
-                  </div>
+                 </div>
             </td>
         </tr>
 }
