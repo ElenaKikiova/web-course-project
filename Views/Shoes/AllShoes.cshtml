@@ -6,7 +6,7 @@
 <h1>AllShoes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Edit">Create New</a>
 </p>
 <table class="table">
     <tbody>
@@ -15,13 +15,12 @@
             <td>
                 <div class="shoe">
                         <img src=@item.ImageUrl />
-                        <div class="title">@item.Id</div>
                         <div class="title">@item.Name</div>
                         <div class="price">@item.Price BGN</div>
                         <div class="actions">
                             @Html.ActionLink("Edit", "Edit", new { ShoeId=item.Id }) |
                             @Html.ActionLink("Details", "Details", new { ShoeId=item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            @Html.ActionLink("Delete", "Delete", new { ShoeId=item.Id }))
                         </div>
                  </div>
             </td>

@@ -26,32 +26,59 @@ namespace CourseProject.Controllers
             return View(model);
         }
 
-        public IActionResult Edit(int ShoeId)
+        public IActionResult Edit(int? ShoeId)
         {
-            var model = this.shoesService.Get(ShoeId);
-            return View(new ShoeCreateEditViewModel()
-            {
-                Id = ShoeId,
-                BrandId = model.BrandId,
-                Name = model.Name,
-                CategoryId = model.CategoryId,
-                ImageUrl = model.ImageUrl,
-                Price = model.Price,
-            });
+            if (!ShoeId.HasValue) {
+                return View(new ShoeCreateEditViewModel());
+            }
+            else {
+                var model = this.shoesService.Get(ShoeId.Value);
+
+                if (model == null)
+                {
+                    return RedirectToAction("AllShoes");
+                }
+                else
+                {
+
+                    return View(new ShoeCreateEditViewModel()
+                    {
+                        Id = ShoeId.Value,
+                        BrandId = model.BrandId,
+                        Name = model.Name,
+                        CategoryId = model.CategoryId,
+                        ImageUrl = model.ImageUrl,
+                        Price = model.Price,
+                    });
+                }
+            }
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult Edit(ShoeCreateEditViewModel model)
         {
-            this.shoesService.Update(model);
-            return RedirectToAction("List");
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (model.Id == 0)
+            {
+                this.shoesService.Add(model);
+            }
+            else
+            {
+                this.shoesService.Update(model);
+            }
+            return RedirectToAction("AllShoes");
         }
 
         public IActionResult Delete(int ShoeId)
         {
             this.shoesService.Delete(ShoeId);
-            return RedirectToAction("List");
+            return RedirectToAction("AllShoes");
         }
     }
 }
