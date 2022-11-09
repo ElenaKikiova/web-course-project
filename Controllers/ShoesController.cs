@@ -29,7 +29,23 @@ namespace CourseProject.Controllers
         public IActionResult Edit(int ShoeId)
         {
             var model = this.shoesService.Get(ShoeId);
-            return View(model);
+            return View(new ShoeCreateEditViewModel()
+            {
+                Id = ShoeId,
+                BrandId = model.BrandId,
+                Name = model.Name,
+                CategoryId = model.CategoryId,
+                ImageUrl = model.ImageUrl,
+                Price = model.Price,
+            });
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Edit(ShoeCreateEditViewModel model)
+        {
+            this.shoesService.Update(model);
+            return RedirectToAction("List");
         }
 
         public IActionResult Delete(int ShoeId)
