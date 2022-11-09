@@ -1,23 +1,84 @@
 ﻿using CourseProject.Repositories.Abstractions;
+using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CourseProject.Controllers
 {
     public class ShoesController : Controller
     {
-        private IShoesRepository shoesRepository;
+        private IShoesService shoesService;
 
-        public ShoesController(IShoesRepository repository)
+        public ShoesController(IShoesService service)
         {
-            this.shoesRepository = repository;
+            this.shoesService = service;
         }
 
         public IActionResult AllShoes()
         {
-            AllShoesViewModel allShoesViewModel = new AllShoesViewModel();
-            allShoesViewModel.Shoes = shoesRepository.GetAll();
-            return View(allShoesViewModel);
+            var list = this.shoesService.GetAll();
+            return View(list);
+        }
+        public IActionResult Details(int ShoeId)
+        {
+            var model = this.shoesService.Get(ShoeId);
+            return View(model);
+        }
+
+        public IActionResult Edit(int? ShoeId)
+        {
+            if (!ShoeId.HasValue) {
+                return View(new ShoeCreateEditViewModel());
+            }
+            else {
+                var model = this.shoesService.Get(ShoeId.Value);
+
+                if (model == null)
+                {
+                    return RedirectToAction("AllShoes");
+                }
+                else
+                {
+
+                    return View(new ShoeCreateEditViewModel()
+                    {
+                        Id = ShoeId.Value,
+                        BrandId = model.BrandId,
+                        Name = model.Name,
+                        CategoryId = model.CategoryId,
+                        ImageUrl = model.ImageUrl,
+                        Price = model.Price,
+                    });
+                }
+            }
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Edit(ShoeCreateEditViewModel model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (model.Id == 0)
+            {
+                this.shoesService.Add(model);
+            }
+            else
+            {
+                this.shoesService.Update(model);
+            }
+            return RedirectToAction("AllShoes");
+        }
+
+        public IActionResult Delete(int ShoeId)
+        {
+            this.shoesService.Delete(ShoeId);
+            return RedirectToAction("AllShoes");
         }
     }
 }

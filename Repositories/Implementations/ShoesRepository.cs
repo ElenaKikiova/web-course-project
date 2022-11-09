@@ -40,12 +40,16 @@ namespace CourseProject.Repositories.Implementations
                 this.shoesDbContext.Entry(current).State = EntityState.Detached;
             }
 
-            this.shoesDbContext.Entry(current).State = EntityState.Modified;
+            this.shoesDbContext.Entry(shoe).State = EntityState.Modified;
             this.shoesDbContext.SaveChanges();
         }
         public void Delete(int ShoeId)
         {
-            this.dbSet.Remove(Get(ShoeId));
+            Shoe shoe = Get(ShoeId);
+            if (shoe != null)
+            {
+                this.dbSet.Remove(shoe);
+            }
             this.shoesDbContext.SaveChanges();
         }
 
