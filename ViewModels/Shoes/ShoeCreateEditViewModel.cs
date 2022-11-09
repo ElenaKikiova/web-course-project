@@ -8,9 +8,11 @@ namespace CourseProject.ViewModels.Shoes
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Price { get; set; }
+        public float Price { get; set; }
         [Required]
-        public string BrandId { get; set; }
+        public int BrandId { get; set; }
+        [Required]
+        public int CategoryId { get; set; }
         [Required]
         public string ImageUrl { get; set; }
     }

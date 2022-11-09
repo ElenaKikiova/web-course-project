@@ -53,16 +53,34 @@ namespace CourseProject.Services.Implementations
 
         public void Add(ShoeCreateEditViewModel model)
         {
-            throw new NotImplementedException();
+            var shoe = new Shoe()
+            {
+                BrandId = model.BrandId,
+                CategoryId = model.CategoryId,
+                Name = model.Name,
+                ImageUrl = model.ImageUrl,
+                Price = model.Price
+            };
+            this.shoesRepository.Add(shoe);
+
         }
 
         public void Update(ShoeCreateEditViewModel model)
         {
-            throw new NotImplementedException();
+            var shoe = new Shoe()
+            {
+                Id = model.Id,
+                BrandId = model.BrandId,
+                CategoryId = model.CategoryId,
+                Name = model.Name,
+                ImageUrl = model.ImageUrl,
+                Price = model.Price
+            };
+            this.shoesRepository.Update(shoe);
         }
         public void Delete(int ShoeId)
         {
-            throw new NotImplementedException();
+            this.shoesRepository.Delete(ShoeId);
         }
     }
 }

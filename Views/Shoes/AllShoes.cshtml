@@ -19,7 +19,7 @@
                         <div class="title">@item.Name</div>
                         <div class="price">@item.Price BGN</div>
                         <div class="actions">
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Edit", "Edit", new { ShoeId=item.Id }) |
                             @Html.ActionLink("Details", "Details", new { ShoeId=item.Id }) |
                             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                         </div>

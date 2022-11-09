@@ -23,7 +23,6 @@ namespace CourseProject.Repositories.Implementations
 
         public Shoe Get(int ShoeId)
         {
-            Console.WriteLine("AAAAAAAAAA" + ShoeId);
             return this.dbSet.Find(ShoeId);
         }
 

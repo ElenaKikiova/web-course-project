@@ -19,16 +19,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Profile/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/_ViewImports.cshtml]
@@ -42,3 +42,11 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xqnuuovobb
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/AllShoes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcQWxsU2hvZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-6uzpou6ytj
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-2dtl4fwm5k
