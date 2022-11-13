@@ -1,0 +1,40 @@
+﻿@model CourseProject.ViewModels.ShoeSupplier.ShoeSupplierViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Company Name</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ShoeSuppliers) {
+        <tr>
+            <td>@item.ShoeSupplierId</td>
+            <td>@item.CompanyName</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
