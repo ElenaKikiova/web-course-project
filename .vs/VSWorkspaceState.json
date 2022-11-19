@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models"
+    "\\Migrations",
+    "\\Models",
+    "\\Repositories",
+    "\\Repositories\\Abstractions",
+    "\\Repositories\\Implementations"
   ],
+  "SelectedNode": "\\Models",
   "PreviewInSolutionExplorer": false
 }

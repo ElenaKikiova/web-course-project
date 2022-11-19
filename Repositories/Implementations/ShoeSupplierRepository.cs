@@ -35,7 +35,7 @@ namespace CourseProject.Services.Implementations
 
         public void Update(ShoeSupplier shoeSupplier)
         {
-            ShoeSupplier shoeSupplierInDB = GetById(shoeSupplier.Id);
+            ShoeSupplier shoeSupplierInDB = GetById(shoeSupplier.ShoeSupplierId);
 
             if(shoeSupplierInDB != null)
             {

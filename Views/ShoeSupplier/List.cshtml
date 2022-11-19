@@ -1,4 +1,4 @@
-﻿@model CourseProject.ViewModels.ShoeSupplier.ShoeSupplierViewModel
+﻿@model IEnumerable<CourseProject.ViewModels.ShoeSupplier.ShoeSupplierDetailsViewModel>
 
 @{
     Layout = null;
@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ShoeSuppliers) {
+@foreach (var item in Model) {
         <tr>
             <td>@item.ShoeSupplierId</td>
             <td>@item.CompanyName</td>

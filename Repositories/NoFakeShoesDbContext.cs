@@ -11,5 +11,8 @@ namespace CourseProject.Repositories
         }
 
         public DbSet<Shoe> Shoes { get; set; }
+
+        public DbSet<ShoeSupplier> Suppliers { get; set; }
+
     }
 }

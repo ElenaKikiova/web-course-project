@@ -5,48 +5,61 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CourseProject
 build_property.RootNamespace = CourseProject
-build_property.ProjectDir = C:\Users\Elena\Documents\web-course-project\CourseProject\
+build_property.ProjectDir = C:\Users\filip\source\repos\web-course-project\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Elena\Documents\web-course-project\CourseProject
+build_property.MSBuildProjectDirectory = C:\Users\filip\source\repos\web-course-project
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Home/Index.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Profile/Profile.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/Profile/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/Edit.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/ShoeSupplier/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZVN1cHBsaWVyXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/filip/source/repos/web-course-project/Views/ShoeSupplier/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZVN1cHBsaWVyXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/filip/source/repos/web-course-project/Views/ShoeSupplier/ShoeSupplier.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZVN1cHBsaWVyXFNob2VTdXBwbGllci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/filip/source/repos/web-course-project/Views/Shoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/_ViewImports.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/_ViewStart.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/_Layout.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xqnuuovobb
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/AllShoes.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/Shoes/AllShoes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcQWxsU2hvZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6uzpou6ytj
 
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/Details.cshtml]
+[C:/Users/filip/source/repos/web-course-project/Views/Shoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-2dtl4fwm5k

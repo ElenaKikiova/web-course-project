@@ -50,6 +50,26 @@ namespace CourseProject.Migrations
 
                     b.ToTable("Shoes");
                 });
+
+            modelBuilder.Entity("CourseProject.Models.ShoeSupplier", b =>
+                {
+                    b.Property<int>("ShoeSupplierId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoeSupplierId"), 1L, 1);
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ShoeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ShoeSupplierId");
+
+                    b.ToTable("Suppliers");
+                });
 #pragma warning restore 612, 618
         }
     }
