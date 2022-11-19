@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseProject.Migrations
 {
     [DbContext(typeof(NoFakeShoesDbContext))]
-    [Migration("20221113082129_ShoeSupplierMigration")]
+    [Migration("20221119133352_ShoeSupplierMigration")]
     partial class ShoeSupplierMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,24 +53,73 @@ namespace CourseProject.Migrations
                     b.ToTable("Shoes");
                 });
 
-            modelBuilder.Entity("CourseProject.Models.ShoeSupplier", b =>
+            modelBuilder.Entity("CourseProject.Models.Shoe_ShoeSupplier_ManyToManyRelationShip", b =>
                 {
-                    b.Property<int>("ShoeSupplierId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoeSupplierId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ShoeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShoeSupplierId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShoeId");
+
+                    b.HasIndex("ShoeSupplierId");
+
+                    b.ToTable("Shoe_ShoeSupplier");
+                });
+
+            modelBuilder.Entity("CourseProject.Models.ShoeSupplier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ShoeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ShoeSupplierId");
+                    b.HasKey("Id");
 
                     b.ToTable("Suppliers");
+                });
+
+            modelBuilder.Entity("CourseProject.Models.Shoe_ShoeSupplier_ManyToManyRelationShip", b =>
+                {
+                    b.HasOne("CourseProject.Models.Shoe", "Shoe")
+                        .WithMany("Shoe_ShoeSuppliers")
+                        .HasForeignKey("ShoeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CourseProject.Models.ShoeSupplier", "ShoeSupplier")
+                        .WithMany("Shoe_ShoeSuppliers")
+                        .HasForeignKey("ShoeSupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Shoe");
+
+                    b.Navigation("ShoeSupplier");
+                });
+
+            modelBuilder.Entity("CourseProject.Models.Shoe", b =>
+                {
+                    b.Navigation("Shoe_ShoeSuppliers");
+                });
+
+            modelBuilder.Entity("CourseProject.Models.ShoeSupplier", b =>
+                {
+                    b.Navigation("Shoe_ShoeSuppliers");
                 });
 #pragma warning restore 612, 618
         }

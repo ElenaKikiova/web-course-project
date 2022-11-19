@@ -19,7 +19,8 @@ namespace CourseProject.Services.Implementations
 
         public List<ShoeSupplier> GetAll()
         {
-            return shoeSuppliersDbSet.ToList();
+            var joinQuery = noFakeShoesDbContext.Suppliers.Include(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers).ThenInclude(shoe_ShoeSuppliers => shoe_ShoeSuppliers.Shoe);
+            return joinQuery.ToList();
         }
 
         public ShoeSupplier GetById(int id)
@@ -35,7 +36,7 @@ namespace CourseProject.Services.Implementations
 
         public void Update(ShoeSupplier shoeSupplier)
         {
-            ShoeSupplier shoeSupplierInDB = GetById(shoeSupplier.ShoeSupplierId);
+            ShoeSupplier shoeSupplierInDB = GetById(shoeSupplier.Id);
 
             if(shoeSupplierInDB != null)
             {

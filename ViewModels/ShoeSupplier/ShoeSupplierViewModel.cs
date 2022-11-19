@@ -1,6 +1,4 @@
-﻿using CourseProject.Models;
-
-namespace CourseProject.ViewModels.ShoeSupplier
+﻿namespace CourseProject.ViewModels.ShoeSupplier
 {
     public class ShoeSupplierViewModel
     {

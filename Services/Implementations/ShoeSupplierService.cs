@@ -17,8 +17,9 @@ namespace CourseProject.Services.Implementations
         {
             return shoeSupplierRepostory.GetAll().Select(shoeSupplier => new ShoeSupplierDetailsViewModel
             {
-                ShoeSupplierId = shoeSupplier.ShoeSupplierId,
-                CompanyName = shoeSupplier.CompanyName
+                ShoeSupplierId = shoeSupplier.Id,
+                CompanyName = shoeSupplier.CompanyName,
+                Shoe_ShoeSuppliers = shoeSupplier.Shoe_ShoeSuppliers
             }).ToList();
         }
 
@@ -30,7 +31,7 @@ namespace CourseProject.Services.Implementations
 
             return new ShoeSupplierDetailsViewModel
             {
-                ShoeSupplierId = shoeSupplier.ShoeSupplierId,
+                ShoeSupplierId = shoeSupplier.Id,
                 CompanyName = shoeSupplier.CompanyName
             };
         }
