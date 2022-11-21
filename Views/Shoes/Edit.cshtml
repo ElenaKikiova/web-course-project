@@ -34,12 +34,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="BrandId" class="control-label"></label>
-                <input asp-for="BrandId" class="form-control" />
+                <select asp-for="BrandId" class="form-control">
+                    <option name="Converse" value="1">Converse</option>
+                    <option name="Nike" value="2">Nike</option>
+                </select>
                 <span asp-validation-for="BrandId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class="form-control" />
+                <select asp-for="CategoryId" class="form-control">
+                        <option name="Casual" value="1">Casual</option>
+                        <option name="Sport" value="2">Sport</option>
+                </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
