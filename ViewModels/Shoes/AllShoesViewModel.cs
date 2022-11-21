@@ -4,6 +4,6 @@ namespace CourseProject.ViewModels.Shoes
 {
     public class AllShoesViewModel
     {
-        public List<Shoe> Shoes { get; set; }
+        public List<ShoeDetailsViewModel> Shoes { get; set; }
     }
 }

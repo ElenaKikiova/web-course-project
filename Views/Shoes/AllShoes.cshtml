@@ -1,4 +1,4 @@
-﻿@model CourseProject.ViewModels.Shoes.AllShoesViewModel;
+﻿@model IEnumerable<CourseProject.ViewModels.Shoes.ShoeDetailsViewModel>;
 
 @{
     ViewData["Title"] = "AllShoes";
@@ -6,11 +6,11 @@
 <h1>AllShoes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Edit">Create New</a>
 </p>
 <table class="table">
     <tbody>
-@foreach (var item in Model.Shoes) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 <div class="shoe">
@@ -18,11 +18,11 @@
                         <div class="title">@item.Name</div>
                         <div class="price">@item.Price BGN</div>
                         <div class="actions">
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            @Html.ActionLink("Edit", "Edit", new { ShoeId=item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { ShoeId=item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { ShoeId=item.Id }))
                         </div>
-                  </div>
+                 </div>
             </td>
         </tr>
 }

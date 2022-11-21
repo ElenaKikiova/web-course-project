@@ -1,6 +1,8 @@
 using CourseProject.Repositories;
 using CourseProject.Repositories.Abstractions;
 using CourseProject.Repositories.Implementations;
+using CourseProject.Services.Abstractions;
+using CourseProject.Services.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -10,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<NoFakeShoesDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IShoesRepository, ShoesRepository>();
+builder.Services.AddScoped<IShoesService, ShoesService>();
 
 builder.Services.AddControllersWithViews();
 
