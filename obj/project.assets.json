@@ -9850,19 +9850,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\filip\\.nuget\\packages\\": {}
+    "C:\\Users\\Elena\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\filip\\Source\\Repos\\web-course-project\\CourseProject.csproj",
+      "projectUniqueName": "C:\\Users\\Elena\\Documents\\web-course-project\\CourseProject\\CourseProject.csproj",
       "projectName": "CourseProject",
-      "projectPath": "C:\\Users\\filip\\Source\\Repos\\web-course-project\\CourseProject.csproj",
-      "packagesPath": "C:\\Users\\filip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\filip\\Source\\Repos\\web-course-project\\obj\\",
+      "projectPath": "C:\\Users\\Elena\\Documents\\web-course-project\\CourseProject\\CourseProject.csproj",
+      "packagesPath": "C:\\Users\\Elena\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Elena\\Documents\\web-course-project\\CourseProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\filip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Elena\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9926,7 +9926,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
