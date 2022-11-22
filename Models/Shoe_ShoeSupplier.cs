@@ -8,8 +8,8 @@
 
         public int ShoeSupplierId { get; set; }
 
-        public Shoe Shoe { get; set; }
+        public virtual Shoe Shoe { get; set; }
 
-        public ShoeSupplier ShoeSupplier { get; set; }
+        public virtual ShoeSupplier ShoeSupplier { get; set; }
     }
 }

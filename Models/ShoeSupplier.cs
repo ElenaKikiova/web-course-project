@@ -6,6 +6,7 @@
 
         public string SupplierName { get; set; }
 
-        public List<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
+        public virtual List<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
+            = new List<Shoe_ShoeSupplier>();
     }
 }

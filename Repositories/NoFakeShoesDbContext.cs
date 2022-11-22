@@ -12,15 +12,25 @@ namespace CourseProject.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Shoe_ShoeSupplier>()
-                .HasOne(shoe_ShoeSupplier => shoe_ShoeSupplier.Shoe)
-                .WithMany(shoe => shoe.Shoe_ShoeSuppliers)
-                .HasForeignKey(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeId);
+            modelBuilder.Entity<Shoe>()
+                .HasMany(shoe => shoe.Shoe_ShoeSuppliers)
+                .WithOne()
+                .HasForeignKey(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ShoeSupplier>()
+                .HasMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
+                .WithOne()
+                .HasForeignKey(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeSupplierId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Shoe_ShoeSupplier>()
-                .HasOne(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeSupplier)
-                .WithMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
-                .HasForeignKey(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeSupplierId);
+                .HasOne(shoe_shoeSupplier => shoe_shoeSupplier.Shoe)
+                .WithMany(shoe => shoe.Shoe_ShoeSuppliers);
+
+            modelBuilder.Entity<Shoe_ShoeSupplier>()
+                .HasOne(shoe_shoeSupplier => shoe_shoeSupplier.ShoeSupplier)
+                .WithMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers);
         }
 
         public DbSet<Shoe> Shoes { get; set; }
