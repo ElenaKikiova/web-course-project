@@ -27,6 +27,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/ShoeSupplier/EditShoeSupplier.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZVN1cHBsaWVyXEVkaXRTaG9lU3VwcGxpZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/ShoeSupplier/ListAllShoeSuppliers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZVN1cHBsaWVyXExpc3RBbGxTaG9lU3VwcGxpZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/ShoeSupplier/ShoeSupplierDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZVN1cHBsaWVyXFNob2VTdXBwbGllckRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
