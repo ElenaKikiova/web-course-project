@@ -13,6 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<NoFakeShoesDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IShoesRepository, ShoesRepository>();
 builder.Services.AddScoped<IShoesService, ShoesService>();
+builder.Services.AddScoped<IShoeSupplierRepository, ShoeSupplierRepository>();
+builder.Services.AddScoped<IShoe_ShoeSupplierRepository, Shoe_ShoeSupplierRepository>();
+builder.Services.AddScoped<IShoeSupplierService, ShoeSupplierService>();
 
 builder.Services.AddControllersWithViews();
 
