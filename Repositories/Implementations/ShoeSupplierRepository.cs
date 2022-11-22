@@ -21,9 +21,9 @@ namespace CourseProject.Repositories.Implementations
             return shoeSuppliersDbSet.Find(id);
         }
 
-        public List<ShoeSupplier> GetAll()
+        public IQueryable<ShoeSupplier> GetAll()
         {
-            return shoeSuppliersDbSet.ToList<ShoeSupplier>();
+            return shoeSuppliersDbSet;
         }
 
         public void Insert(ShoeSupplier shoeSupplier)

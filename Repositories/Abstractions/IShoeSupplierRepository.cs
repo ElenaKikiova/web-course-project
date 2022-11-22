@@ -6,7 +6,7 @@ namespace CourseProject.Repositories.Abstractions
     {
         ShoeSupplier GetById(int id);
 
-        List<ShoeSupplier> GetAll();
+        IQueryable<ShoeSupplier> GetAll();
 
         void Insert(ShoeSupplier shoeSupplier);
 
