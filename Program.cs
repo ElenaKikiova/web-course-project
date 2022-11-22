@@ -15,6 +15,7 @@ builder.Services.AddScoped<IShoesRepository, ShoesRepository>();
 builder.Services.AddScoped<IShoesService, ShoesService>();
 builder.Services.AddScoped<IShoeSupplierRepository, ShoeSupplierRepository>();
 builder.Services.AddScoped<IShoe_ShoeSupplierRepository, Shoe_ShoeSupplierRepository>();
+builder.Services.AddScoped<IShoeSupplierService, ShoeSupplierService>();
 
 builder.Services.AddControllersWithViews();
 

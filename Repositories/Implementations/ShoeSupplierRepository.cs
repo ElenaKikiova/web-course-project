@@ -40,7 +40,7 @@ namespace CourseProject.Repositories.Implementations
             {
                 noFakeShoesDbContext.Entry(shoeSupplierInDB).State = EntityState.Detached;
             }
-            noFakeShoesDbContext.Entry(shoeSupplierInDB).State = EntityState.Modified;
+            noFakeShoesDbContext.Entry(shoeSupplier).State = EntityState.Modified;
             noFakeShoesDbContext.SaveChanges();
         }
 
