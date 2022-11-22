@@ -28,10 +28,12 @@ namespace CourseProject.Controllers
 
         public IActionResult Edit(int? ShoeId)
         {
-            if (!ShoeId.HasValue) {
+            if (!ShoeId.HasValue)
+            {
                 return View(new ShoeCreateEditViewModel());
             }
-            else {
+            else
+            {
                 var model = this.shoesService.Get(ShoeId.Value);
 
                 if (model == null)

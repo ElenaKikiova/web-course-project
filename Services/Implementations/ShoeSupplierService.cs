@@ -23,7 +23,7 @@ namespace CourseProject.Services.Implementations
             return new ShoeSupplierDetailViewModel()
             {
                 Id = shoeSupplier.Id,
-                SupplierName= shoeSupplier.SupplierName
+                SupplierName = shoeSupplier.SupplierName
             };
         }
 
