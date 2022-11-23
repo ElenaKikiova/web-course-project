@@ -2,23 +2,32 @@
     box-sizing: border-box;
 }
 
-table[b-6uzpou6ytj] {
+.shoes[b-6uzpou6ytj] {
     width: 100vw;
     max-width: 1200px;
     margin: auto;
+    display: flex;
 }
 
 .shoe[b-6uzpou6ytj] {
     box-shadow: 2px 2px 2px #ccc;
-    display: block;
     max-width: 150px;
     margin: 0.25rem;
     border-radius: 5px;
+    display: block;
 }
 
-.shoe img[b-6uzpou6ytj] {
+.img[b-6uzpou6ytj] {
     max-width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 5px 5px 0 0;
+}
+
+.info[b-6uzpou6ytj] {
+    margin-top: auto;
 }
 
 .shoe .title[b-6uzpou6ytj] {
@@ -35,5 +44,15 @@ table[b-6uzpou6ytj] {
 
 .shoe .actions[b-6uzpou6ytj] {
     padding: 0.25rem;
+    display: flex;
+}
+
+.actions button[b-6uzpou6ytj] {
+    border: 0;
+    flex-grow: 1;
+    text-decoration: none !important;
+}
+
+.actions[b-6uzpou6ytj] {
     display: flex;
 }

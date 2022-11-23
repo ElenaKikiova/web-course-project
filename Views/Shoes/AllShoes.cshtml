@@ -1,30 +1,26 @@
 ﻿@model IEnumerable<CourseProject.ViewModels.Shoes.ShoeDetailsViewModel>;
 
 @{
-    ViewData["Title"] = "AllShoes";
+    ViewData["Title"] = "All shoes";
 }
-<h1>AllShoes</h1>
+<h1>All shoes</h1>
 
-<p>
-    <a asp-action="Edit">Create New</a>
-</p>
-<table class="table">
-    <tbody>
+<button class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Edit")'">Create new </button>
+
+<div class="shoes">
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                <div class="shoe">
-                        <img src=@item.ImageUrl />
-                        <div class="title">@item.Name</div>
-                        <div class="price">@item.Price BGN</div>
-                        <div class="actions">
-                            @Html.ActionLink("Edit", "Edit", new { ShoeId=item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { ShoeId=item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { ShoeId=item.Id })
-                        </div>
-                 </div>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="shoe">
+            <div class="img" style="background-image: url(@item.ImageUrl)" ></div>
+            <div class="info">
+                <div class="title">
+                    @Html.ActionLink(@item.Name, "Details", new { ShoeId=item.Id })
+                </div>
+                <div class="price">@item.Price BGN</div>
+                <div class="actions">
+                    <button>@Html.ActionLink("Edit", "Edit", new { ShoeId=item.Id }) </button>
+                    <button>@Html.ActionLink("Delete", "Delete", new { ShoeId=item.Id })</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

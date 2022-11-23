@@ -17,14 +17,16 @@
         border-radius: 5px 5px 0 0;
     }
 
+    .details[b-2dtl4fwm5k] {
+        flex-grow: 1;
+    }
+
     .details .title[b-2dtl4fwm5k] {
         padding: 0.25rem;
-        text-align: center
     }
 
     .details .price[b-2dtl4fwm5k] {
         padding: 0.25rem;
-        text-align: center;
         font-size: 1.1rem;
         color: red;
     }
