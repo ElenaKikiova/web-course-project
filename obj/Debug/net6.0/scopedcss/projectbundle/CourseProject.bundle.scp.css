@@ -9,13 +9,14 @@ a.navbar-brand[b-xqnuuovobb] {
 }
 
 a[b-xqnuuovobb] {
-  color: #0077cc;
+    color: black !important;
+    text-decoration: none !important;
 }
 
-.btn-primary[b-xqnuuovobb] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+button[b-xqnuuovobb], .btn[b-xqnuuovobb], .btn-primary[b-xqnuuovobb] {
+    color: #fff;
+    background-color: cornflowerblue !important;
+    border-color: #1861ae !important;
 }
 
 .nav-pills .nav-link.active[b-xqnuuovobb], .nav-pills .show > .nav-link[b-xqnuuovobb] {
@@ -35,11 +36,6 @@ a[b-xqnuuovobb] {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy[b-xqnuuovobb] {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
 .footer[b-xqnuuovobb] {
   position: absolute;
   bottom: 0;
@@ -52,23 +48,32 @@ button.accept-policy[b-xqnuuovobb] {
     box-sizing: border-box;
 }
 
-table[b-6uzpou6ytj] {
+.shoes[b-6uzpou6ytj] {
     width: 100vw;
     max-width: 1200px;
     margin: auto;
+    display: flex;
 }
 
 .shoe[b-6uzpou6ytj] {
     box-shadow: 2px 2px 2px #ccc;
-    display: block;
     max-width: 150px;
     margin: 0.25rem;
     border-radius: 5px;
+    display: block;
 }
 
-.shoe img[b-6uzpou6ytj] {
+.img[b-6uzpou6ytj] {
     max-width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 5px 5px 0 0;
+}
+
+.info[b-6uzpou6ytj] {
+    margin-top: auto;
 }
 
 .shoe .title[b-6uzpou6ytj] {
@@ -85,6 +90,16 @@ table[b-6uzpou6ytj] {
 
 .shoe .actions[b-6uzpou6ytj] {
     padding: 0.25rem;
+    display: flex;
+}
+
+.actions button[b-6uzpou6ytj] {
+    border: 0;
+    flex-grow: 1;
+    text-decoration: none !important;
+}
+
+.actions[b-6uzpou6ytj] {
     display: flex;
 }
 /* _content/CourseProject/Views/Shoes/Details.cshtml.rz.scp.css */
@@ -107,15 +122,22 @@ table[b-6uzpou6ytj] {
         border-radius: 5px 5px 0 0;
     }
 
+    .details[b-2dtl4fwm5k] {
+        flex-grow: 1;
+    }
+
     .details .title[b-2dtl4fwm5k] {
         padding: 0.25rem;
-        text-align: center
     }
 
     .details .price[b-2dtl4fwm5k] {
         padding: 0.25rem;
-        text-align: center;
         font-size: 1.1rem;
         color: red;
     }
 
+/* _content/CourseProject/Views/Shoes/Edit.cshtml.rz.scp.css */
+input[type="submit"][b-t9o8pgh1f0]{
+    width: 100%;
+    margin-top: 1rem;
+}
