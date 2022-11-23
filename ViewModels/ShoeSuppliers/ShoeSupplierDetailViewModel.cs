@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using CourseProject.ViewModels.Shoes;
+using System.ComponentModel;
 
 namespace CourseProject.ViewModels.ShoeSuppliers
 {
@@ -9,5 +10,7 @@ namespace CourseProject.ViewModels.ShoeSuppliers
 
         [DisplayName("Supplier: ")]
         public string SupplierName { get; set; }
+
+        public List<ShoeDetailsViewModel> Shoes;
     }
 }

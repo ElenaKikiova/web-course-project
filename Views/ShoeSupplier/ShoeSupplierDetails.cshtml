@@ -29,10 +29,18 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.SupplierName)
         </dd>
+        <span>Shoes: </span>
+        <ul>
+                @foreach(var item in Model.Shoes)
+                {
+                    <li>@item.Name</li>
+                    <li>@item.Price</li>
+                }
+        </ul>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Edit", "EditShoeSupplier", new { id = Model.Id }) |
         <a asp-action="ListAllShoeSuppliers">Back to List</a>
 </div>
 </body>

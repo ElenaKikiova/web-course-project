@@ -34,20 +34,34 @@ namespace CourseProject.Repositories.Implementations
 
         public void Update(ShoeSupplier shoeSupplier)
         {
-            ShoeSupplier shoeSupplierInDB = GetById(shoeSupplier.Id);
+            ShoeSupplier shoeSupplierInDB = GetShoeSupplierWithShoes(shoeSupplier.Id);
 
-            if (shoeSupplierInDB != null)
-            {
-                noFakeShoesDbContext.Entry(shoeSupplierInDB).State = EntityState.Detached;
-            }
+            if (shoeSupplierInDB != null) noFakeShoesDbContext.Entry(shoeSupplierInDB).State = EntityState.Detached;
+
             noFakeShoesDbContext.Entry(shoeSupplier).State = EntityState.Modified;
+
+            noFakeShoesDbContext.Shoe_ShoeSuppliers.RemoveRange(shoeSupplierInDB.Shoe_ShoeSuppliers);
+            noFakeShoesDbContext.SaveChanges();
+
+            noFakeShoesDbContext.Shoe_ShoeSuppliers.AddRange(shoeSupplierInDB.Shoe_ShoeSuppliers);
             noFakeShoesDbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            shoeSuppliersDbSet.Remove(GetById(id));
+            ShoeSupplier shoeSupplierInDB = shoeSuppliersDbSet
+                .Include(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
+                .FirstOrDefault(shoeSupplier => shoeSupplier.Id == id);
+
+            noFakeShoesDbContext.Shoe_ShoeSuppliers.RemoveRange(shoeSupplierInDB.Shoe_ShoeSuppliers);
+            shoeSuppliersDbSet.Remove(shoeSupplierInDB);
             noFakeShoesDbContext.SaveChanges();
+        }
+
+        private ShoeSupplier GetShoeSupplierWithShoes(int id)
+        {
+            return shoeSuppliersDbSet.Include(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
+                .FirstOrDefault(shoeSupplier => shoeSupplier.Id == id);
         }
     }
 }

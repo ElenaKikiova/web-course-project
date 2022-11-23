@@ -1,7 +1,9 @@
 ﻿using CourseProject.Models;
 using CourseProject.Repositories.Abstractions;
 using CourseProject.Services.Abstractions;
+using CourseProject.ViewModels.Shoes;
 using CourseProject.ViewModels.ShoeSuppliers;
+using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.Services.Implementations
 {
@@ -16,24 +18,62 @@ namespace CourseProject.Services.Implementations
 
         public ShoeSupplierDetailViewModel GetById(int id)
         {
-            ShoeSupplier shoeSupplier = shoeSupplierRepository.GetById(id);
+            var shoeSupplierInDB = shoeSupplierRepository.GetAll()
+                .Include(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
+                .ThenInclude(shoe_ShoeSupplier => shoe_ShoeSupplier.Shoe)
+                .FirstOrDefault(shoeSupplier => shoeSupplier.Id == id);
 
-            if (shoeSupplier == null) return null;
+            if (shoeSupplierInDB == null) return null;
 
-            return new ShoeSupplierDetailViewModel()
+            return new ShoeSupplierDetailViewModel
             {
-                Id = shoeSupplier.Id,
-                SupplierName = shoeSupplier.SupplierName
+                Id = shoeSupplierInDB.Id,
+                SupplierName = shoeSupplierInDB.SupplierName,
+                Shoes = shoeSupplierInDB.Shoe_ShoeSuppliers.Select(shoe_ShoeSupplier => new ShoeDetailsViewModel
+                {
+                    Id = shoe_ShoeSupplier.Shoe.Id,
+                    CategoryId = shoe_ShoeSupplier.Shoe.CategoryId,
+                    BrandId = shoe_ShoeSupplier.Shoe.BrandId,
+                    ImageUrl = shoe_ShoeSupplier.Shoe.ImageUrl,
+                    Name = shoe_ShoeSupplier.Shoe.Name,
+                    Price = shoe_ShoeSupplier.Shoe.Price
+                }).ToList()
             };
         }
 
         public List<ShoeSupplierDetailViewModel> GetAll()
         {
-            return shoeSupplierRepository.GetAll().Select(shoeSupplier => new ShoeSupplierDetailViewModel
+            return shoeSupplierRepository.GetAll()
+                 .Include(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
+                 .ThenInclude(shoe_ShoeSupplier => shoe_ShoeSupplier.Shoe)
+                 .Select(shoeSupplier => new ShoeSupplierDetailViewModel
+                 {
+                     Id = shoeSupplier.Id,
+                     SupplierName = shoeSupplier.SupplierName,
+                     Shoes = shoeSupplier.Shoe_ShoeSuppliers.Select(shoe_ShoeSupplier => new ShoeDetailsViewModel
+                     {
+                         Id = shoe_ShoeSupplier.Shoe.Id,
+                         CategoryId = shoe_ShoeSupplier.Shoe.CategoryId,
+                         BrandId = shoe_ShoeSupplier.Shoe.BrandId,
+                         ImageUrl = shoe_ShoeSupplier.Shoe.ImageUrl,
+                         Name = shoe_ShoeSupplier.Shoe.Name,
+                         Price = shoe_ShoeSupplier.Shoe.Price
+                     }).ToList()
+                 }).ToList();
+        }
+
+        public CreateEditShoeSupplierViewModel GetShoeSupplierCreateEdit(int id)
+        {
+            var shoeSupplier = shoeSupplierRepository.GetAll()
+                .Include(s => s.Shoe_ShoeSuppliers)
+                .ThenInclude(shoe_shoeSupplier => shoe_shoeSupplier.Shoe)
+                .FirstOrDefault(s => s.Id == id);
+
+            return new CreateEditShoeSupplierViewModel
             {
                 Id = shoeSupplier.Id,
-                SupplierName = shoeSupplier.SupplierName
-            }).ToList();
+                SupplierName = shoeSupplier.SupplierName,
+            };
         }
 
         public void Insert(CreateEditShoeSupplierViewModel createEditShoeSupplierViewModel)
