@@ -31,6 +31,16 @@ namespace CourseProject.Repositories
             modelBuilder.Entity<Shoe_ShoeSupplier>()
                 .HasOne(shoe_shoeSupplier => shoe_shoeSupplier.ShoeSupplier)
                 .WithMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers);
+
+            modelBuilder.Entity<Discount>()
+                .HasMany(discount => discount.Shoes)
+                .WithOne(shoe => shoe.ShoeDiscount)
+                .HasForeignKey(shoe => shoe.DiscountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Shoe>()
+                .HasOne(shoe => shoe.ShoeDiscount)
+                .WithMany(discount => discount.Shoes);
         }
 
         public DbSet<Shoe> Shoes { get; set; }
@@ -38,5 +48,7 @@ namespace CourseProject.Repositories
         public DbSet<ShoeSupplier> ShoeSuppliers { get; set; }
 
         public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
+
+        public DbSet<Discount> Discounts { get; set; }
     }
 }
