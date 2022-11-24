@@ -1,41 +1,29 @@
 ﻿@model ICollection<CourseProject.ViewModels.ShoeSuppliers.ShoeSupplierDetailViewModel>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Suppliers";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListAllShoeSuppliers</title>
-</head>
-<body>
-    <p>
-        <a asp-action="EditShoeSupplier">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
+<button class="btn btn-primary" onclick="location.href='@Url.Action("EditShoeSupplier")'">Create new </button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Supplier</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>ID</th>
-                <th>Supplier</th>
+                <td>@item.Id</td>
+                <td>@item.SupplierName</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditShoeSupplier", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "ShoeSupplierDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteShoeSupplier", new { id = item.Id })
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.SupplierName</td>
-                    <td>
-                        @Html.ActionLink("Edit", "EditShoeSupplier", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "ShoeSupplierDetails", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "DeleteShoeSupplier", new { id = item.Id })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</body>
-</html>
+        }
+    </tbody>
+</table>

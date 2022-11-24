@@ -1,20 +1,9 @@
 ﻿@model CourseProject.ViewModels.Shoes.ShoeCreateEditViewModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Edit";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-
-<h4>ShoeCreateEditViewModel</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -23,17 +12,17 @@
                 <input asp-for="Id" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Name</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
+                <label asp-for="Price" class="control-label">Price </label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BrandId" class="control-label"></label>
+                <label asp-for="BrandId" class="control-label">Brand </label>
                 <select asp-for="BrandId" class="form-control">
                     <option name="Converse" value="1">Converse</option>
                     <option name="Nike" value="2">Nike</option>
@@ -41,7 +30,7 @@
                 <span asp-validation-for="BrandId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
+                <label asp-for="CategoryId" class="control-label">Category </label>
                 <select asp-for="CategoryId" class="form-control">
                         <option name="Casual" value="1">Casual</option>
                         <option name="Sport" value="2">Sport</option>
@@ -49,7 +38,7 @@
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
+                <label asp-for="ImageUrl" class="control-label">Image URL </label>
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
@@ -60,12 +49,8 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="AllShoes">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-</body>
-</html>

@@ -2,23 +2,32 @@
     box-sizing: border-box;
 }
 
-table {
+.shoes {
     width: 100vw;
     max-width: 1200px;
     margin: auto;
+    display: flex;
 }
 
 .shoe {
     box-shadow: 2px 2px 2px #ccc;
-    display: block;
     max-width: 150px;
     margin: 0.25rem;
     border-radius: 5px;
+    display: block;
 }
 
-.shoe img {
+.img {
     max-width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 5px 5px 0 0;
+}
+
+.info {
+    margin-top: auto;
 }
 
 .shoe .title {
@@ -35,5 +44,15 @@ table {
 
 .shoe .actions {
     padding: 0.25rem;
+    display: flex;
+}
+
+.actions button {
+    border: 0;
+    flex-grow: 1;
+    text-decoration: none !important;
+}
+
+.actions {
     display: flex;
 }

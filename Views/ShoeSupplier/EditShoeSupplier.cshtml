@@ -1,7 +1,7 @@
 ﻿@model CourseProject.ViewModels.ShoeSuppliers.CreateEditShoeSupplierViewModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Edit";
 }
 
 <!DOCTYPE html>
@@ -53,10 +53,10 @@
         <a asp-action="ListAllShoeSuppliers">Back to List</a>
     </div>
 
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+}
 </body>
 </html>
