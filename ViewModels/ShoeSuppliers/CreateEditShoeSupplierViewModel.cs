@@ -1,4 +1,5 @@
-﻿using Microsoft.Build.Framework;
+﻿using CourseProject.ViewModels.Shoes;
+using Microsoft.Build.Framework;
 
 namespace CourseProject.ViewModels.ShoeSuppliers
 {
@@ -8,5 +9,7 @@ namespace CourseProject.ViewModels.ShoeSuppliers
 
         [Required]
         public string SupplierName { get; set; }
+
+        public List<SelectableShoesViewModel> Shoes { get; set; }
     }
 }

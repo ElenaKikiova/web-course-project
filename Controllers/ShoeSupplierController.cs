@@ -8,9 +8,12 @@ namespace CourseProject.Controllers
     {
         private readonly IShoeSupplierService shoeSupplierService;
 
-        public ShoeSupplierController(IShoeSupplierService shoeSupplierService)
+        private readonly IShoesService shoesService;
+
+        public ShoeSupplierController(IShoeSupplierService shoeSupplierService, IShoesService shoesService)
         {
             this.shoeSupplierService = shoeSupplierService;
+            this.shoesService = shoesService;
         }
 
         public IActionResult ListAllShoeSuppliers()
@@ -27,27 +30,23 @@ namespace CourseProject.Controllers
 
         public IActionResult EditShoeSupplier(int? id)
         {
-            if (!id.HasValue) return View(new CreateEditShoeSupplierViewModel());
-
-            var shoeSupplierDetailViewModel = shoeSupplierService.GetById(id.Value);
-
-            if (shoeSupplierDetailViewModel == null) return RedirectToAction("ListAllShoeSuppliers");
-
-            return View(new CreateEditShoeSupplierViewModel()
+            if (!id.HasValue) return View(new CreateEditShoeSupplierViewModel
             {
-                Id = shoeSupplierDetailViewModel.Id,
-                SupplierName = shoeSupplierDetailViewModel.SupplierName,
+                Shoes = shoesService.GetSelectableShoes()
             });
+
+            CreateEditShoeSupplierViewModel model = shoeSupplierService.GetShoe(id.Value);
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditShoeSupplier(CreateEditShoeSupplierViewModel createEditShoeSupplierViewModel)
+        public IActionResult EditShoeSupplier(CreateEditShoeSupplierViewModel viewModel)
         {
-            if (!ModelState.IsValid) return View(createEditShoeSupplierViewModel);
+            if (ModelState.IsValid) return View(viewModel);
 
-            if (createEditShoeSupplierViewModel.Id == 0) shoeSupplierService.Insert(createEditShoeSupplierViewModel);
-            else shoeSupplierService.Update(createEditShoeSupplierViewModel);
+            if (viewModel.Id == 0) shoeSupplierService.Insert(viewModel);
+            else shoeSupplierService.Update(viewModel);
 
             return RedirectToAction("ListAllShoeSuppliers");
         }

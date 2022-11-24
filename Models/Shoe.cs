@@ -9,6 +9,7 @@
         public string ImageUrl { get; set; }
         public string Name { get; set; }    
         public float Price { get; set; }
-        public List<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
+        public virtual ICollection<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
+            = new List<Shoe_ShoeSupplier>();
     }
 }

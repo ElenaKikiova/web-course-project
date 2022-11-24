@@ -1,4 +1,5 @@
 ﻿using CourseProject.Models;
+using CourseProject.ViewModels.ShoeSuppliers;
 
 namespace CourseProject.Repositories.Abstractions
 {
@@ -6,7 +7,7 @@ namespace CourseProject.Repositories.Abstractions
     {
         ShoeSupplier GetById(int id);
 
-        List<ShoeSupplier> GetAll();
+        IQueryable<ShoeSupplier> GetAll();
 
         void Insert(ShoeSupplier shoeSupplier);
 

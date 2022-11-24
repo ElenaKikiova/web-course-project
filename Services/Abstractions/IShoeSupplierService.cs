@@ -8,6 +8,8 @@ namespace CourseProject.Services.Abstractions
 
         List<ShoeSupplierDetailViewModel> GetAll();
 
+        CreateEditShoeSupplierViewModel GetShoe(int id);
+
         void Insert(CreateEditShoeSupplierViewModel createEditShoeSupplierViewModel);
 
         void Update(CreateEditShoeSupplierViewModel createEditShoeSupplierViewModel);
