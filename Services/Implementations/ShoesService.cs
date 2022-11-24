@@ -51,6 +51,20 @@ namespace CourseProject.Services.Implementations
             return shoeDetails;
         }
 
+        public List<SelectableShoesViewModel> GetSelectableShoes()
+        {
+            return this.shoesRepository.GetAll().Select(shoe => new SelectableShoesViewModel
+            {
+                Id = shoe.Id,
+                Name = shoe.Name,
+                Price = shoe.Price,
+                ImageUrl = shoe.ImageUrl,
+                CategoryId = shoe.CategoryId,
+                BrandId = shoe.BrandId,
+                IsSelected = false
+            }).ToList();
+        }
+
         public void Add(ShoeCreateEditViewModel model)
         {
             var shoe = new Shoe()

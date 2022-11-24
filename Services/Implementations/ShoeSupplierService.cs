@@ -11,9 +11,12 @@ namespace CourseProject.Services.Implementations
     {
         private readonly IShoeSupplierRepository shoeSupplierRepository;
 
-        public ShoeSupplierService(IShoeSupplierRepository shoeSupplierRepository)
+        private readonly IShoesRepository shoesRepository;
+
+        public ShoeSupplierService(IShoeSupplierRepository shoeSupplierRepository, IShoesRepository shoesRepository)
         {
             this.shoeSupplierRepository = shoeSupplierRepository;
+            this.shoesRepository = shoesRepository;
         }
 
         public ShoeSupplierDetailViewModel GetById(int id)
@@ -62,27 +65,59 @@ namespace CourseProject.Services.Implementations
                  }).ToList();
         }
 
-        public CreateEditShoeSupplierViewModel GetShoeSupplierCreateEdit(int id)
+        public CreateEditShoeSupplierViewModel GetShoe(int id)
         {
             var shoeSupplier = shoeSupplierRepository.GetAll()
                 .Include(s => s.Shoe_ShoeSuppliers)
                 .ThenInclude(shoe_shoeSupplier => shoe_shoeSupplier.Shoe)
                 .FirstOrDefault(s => s.Id == id);
 
-            return new CreateEditShoeSupplierViewModel
+            var viewModel = new CreateEditShoeSupplierViewModel
             {
                 Id = shoeSupplier.Id,
                 SupplierName = shoeSupplier.SupplierName,
             };
+
+            List<Shoe> shoes = shoesRepository.GetAll();
+
+            viewModel.Shoes = shoes.Select(shoe => new SelectableShoesViewModel
+            {
+                Id = shoe.Id,
+                CategoryId = shoe.CategoryId,
+                BrandId = shoe.BrandId,
+                ImageUrl = shoe.ImageUrl,
+                Name = shoe.Name,
+                Price = shoe.Price,
+                IsSelected = shoeSupplier.Shoe_ShoeSuppliers
+                .Select(shoe_shoeSupplier => shoe_shoeSupplier.ShoeId)
+                .Contains(shoe.Id)
+            }).ToList();
+
+            return viewModel;
         }
 
         public void Insert(CreateEditShoeSupplierViewModel createEditShoeSupplierViewModel)
         {
             var shoeSupplier = new ShoeSupplier()
             {
+                Id = createEditShoeSupplierViewModel.Id,
                 SupplierName = createEditShoeSupplierViewModel.SupplierName
             };
+
             shoeSupplierRepository.Insert(shoeSupplier);
+
+            var createdShoeSupplier = shoeSupplierRepository.GetAll()
+                .FirstOrDefault(shoeSupplier => shoeSupplier.SupplierName == createEditShoeSupplierViewModel.SupplierName);
+
+            createdShoeSupplier.Shoe_ShoeSuppliers = createEditShoeSupplierViewModel.Shoes
+                .Where(shoe => shoe.IsSelected)
+                .Select(shoe => new Shoe_ShoeSupplier
+                {
+                    ShoeId = shoe.Id,
+                    ShoeSupplierId = createdShoeSupplier.Id
+                }).ToList();
+
+            shoeSupplierRepository.Update(createdShoeSupplier);
         }
 
         public void Update(CreateEditShoeSupplierViewModel createEditShoeSupplierViewModel)
@@ -90,7 +125,14 @@ namespace CourseProject.Services.Implementations
             var shoeSupplier = new ShoeSupplier()
             {
                 Id = createEditShoeSupplierViewModel.Id,
-                SupplierName = createEditShoeSupplierViewModel.SupplierName
+                SupplierName = createEditShoeSupplierViewModel.SupplierName,
+                Shoe_ShoeSuppliers = createEditShoeSupplierViewModel.Shoes
+                .Where(shoe => shoe.IsSelected)
+                .Select(shoe => new Shoe_ShoeSupplier
+                {
+                    ShoeId = shoe.Id,
+                    ShoeSupplierId = createEditShoeSupplierViewModel.Id
+                }).ToList()
             };
             shoeSupplierRepository.Update(shoeSupplier);
         }

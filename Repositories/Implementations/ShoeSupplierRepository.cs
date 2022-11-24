@@ -43,7 +43,7 @@ namespace CourseProject.Repositories.Implementations
             noFakeShoesDbContext.Shoe_ShoeSuppliers.RemoveRange(shoeSupplierInDB.Shoe_ShoeSuppliers);
             noFakeShoesDbContext.SaveChanges();
 
-            noFakeShoesDbContext.Shoe_ShoeSuppliers.AddRange(shoeSupplierInDB.Shoe_ShoeSuppliers);
+            noFakeShoesDbContext.Shoe_ShoeSuppliers.AddRange(shoeSupplier.Shoe_ShoeSuppliers);
             noFakeShoesDbContext.SaveChanges();
         }
 

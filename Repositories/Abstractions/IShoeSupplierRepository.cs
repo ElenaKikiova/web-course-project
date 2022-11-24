@@ -1,4 +1,5 @@
 ﻿using CourseProject.Models;
+using CourseProject.ViewModels.ShoeSuppliers;
 
 namespace CourseProject.Repositories.Abstractions
 {
