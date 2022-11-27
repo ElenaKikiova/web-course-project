@@ -43,7 +43,7 @@ namespace CourseProject.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditShoeSupplier(CreateEditShoeSupplierViewModel viewModel)
         {
-            if (ModelState.IsValid) return View(viewModel);
+            if (!ModelState.IsValid) return View(viewModel);
 
             if (viewModel.Id == 0) shoeSupplierService.Insert(viewModel);
             else shoeSupplierService.Update(viewModel);
