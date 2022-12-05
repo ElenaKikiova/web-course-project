@@ -1,4 +1,5 @@
-﻿using CourseProject.ViewModels.Shoes;
+﻿using CourseProject.Models;
+using CourseProject.ViewModels.Shoes;
 using System.ComponentModel;
 
 namespace CourseProject.ViewModels.Brands
@@ -11,6 +12,6 @@ namespace CourseProject.ViewModels.Brands
         [DisplayName("Brand name: ")]
         public string BrandName { get; set; }
 
-        public List<ShoeDetailsViewModel> Shoes;
+        public List<Shoe> Shoes;
     }
 }

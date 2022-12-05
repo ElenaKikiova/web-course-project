@@ -19,7 +19,7 @@
                 <div class="price">@Html.DisplayFor(model => model.Price) BGN</div>
                 <div class="rate">@Html.DisplayFor(model => model.Rating)</div>
 
-                <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Cart", "Add", new { ShoeId = Model.Id })'">Add to cart</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Add", "Cart", new { ShoeId = Model.Id })'">Add to cart</button>
                 <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Shoes", new { ShoeId = Model.Id })'">Edit</button>
             </div>
         </div>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Suppliers";
 }
 
-<button class="btn btn-primary" onclick="location.href='@Url.Action("CreateShoeSupplier")'">Create new </button>
+<button class="btn btn-primary" onclick="location.href='@Url.Action("Edit")'">Create new </button>
 <table class="table">
     <thead>
         <tr>
@@ -19,9 +19,9 @@
                 <td>@item.Id</td>
                 <td>@item.BrandName</td>
                 <td>
-                    @Html.ActionLink("Edit", "EditShoeSupplier", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "ShoeSupplierDetails", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "DeleteShoeSupplier", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", new { BrandId = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { BrandId =  item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { BrandId = item.Id })
                 </td>
             </tr>
         }

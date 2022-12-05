@@ -1,18 +1,16 @@
 @model CourseProject.ViewModels.Brands.BrandDetailViewModel
 
+@{
     ViewData["Title"] = "Details";
 }
 
 <div>
-    <h4>ShoeSupplierDetailViewModel</h4>
+    <h4>Brand details</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Id)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.BrandName)
         </dt>
@@ -21,12 +19,11 @@
                 @foreach(var item in Model.Shoes)
                 {
                     <li>@item.Name</li>
-                    <li>@item.Price</li>
                 }
         </ul>
     </dl>
 </div>
 <div>
-        @Html.ActionLink("Edit", "EditBrand", new { id = Model.Id }) |
+        @Html.ActionLink("Edit", "Edit", new { BrandId = Model.Id }) |
         <a asp-action="ListAllBrands">Back to List</a>
 </div>

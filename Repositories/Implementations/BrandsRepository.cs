@@ -16,7 +16,13 @@ namespace CourseProject.Repositories.Implementations
             this.dbSet = this.shoesDbContext.Set<Brand>();
         }
 
-        public IQueryable<Brand> GetAll() { 
+        public Brand Get(int BrandId)
+        {
+            return this.dbSet.Find(BrandId);
+        }
+
+        public IQueryable<Brand> GetAll()
+        {
             return this.dbSet;
         }
 
@@ -26,19 +32,21 @@ namespace CourseProject.Repositories.Implementations
             this.shoesDbContext.SaveChanges();
         }
 
-        public void Delete(int ShoeId)
+        public void Delete(int BrandId)
         {
-            throw new NotImplementedException();
+            Brand brand = this.dbSet.FirstOrDefault(brand => brand.Id == BrandId);
+
+            if (brand != null)
+            {
+                this.dbSet.Remove(brand);
+            }
+            this.shoesDbContext.SaveChanges();
         }
 
-        public Brand Get(int BrandId)
-        {
-            return this.dbSet.Find(BrandId);
-        }
-
-        public void Update(Shoe shoe)
+        public void Update(Brand brand)
         {
             throw new NotImplementedException();
         }
     }
+
 }

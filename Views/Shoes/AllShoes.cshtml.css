@@ -17,7 +17,8 @@
     display: block;
 }
 
-.img {
+.img{
+    min-width: 150px;
     max-width: 150px;
     height: 150px;
     background-size: contain;

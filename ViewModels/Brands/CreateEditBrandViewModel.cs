@@ -1,4 +1,5 @@
-﻿using CourseProject.ViewModels.Shoes;
+﻿using CourseProject.Models;
+using CourseProject.ViewModels.Shoes;
 using Microsoft.Build.Framework;
 
 namespace CourseProject.ViewModels.Brands
@@ -9,7 +10,5 @@ namespace CourseProject.ViewModels.Brands
 
         [Required]
         public string BrandName { get; set; }
-
-        public List<SelectableShoesViewModel> Shoes { get; set; }
     }
 }

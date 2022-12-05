@@ -22,11 +22,10 @@
         </dd>
         <span>Shoes: </span>
         <ul>
-            @foreach (var item in Model.Shoes)
-            {
-                <li>@item.Name</li>
-                <li>@item.Price</li>
-            }
+                @foreach(var item in Model.Shoes)
+                {
+                    <li>@item.Name</li>
+                }
         </ul>
     </dl>
 </div>

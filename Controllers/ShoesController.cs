@@ -1,4 +1,5 @@
-﻿using CourseProject.Services.Abstractions;
+﻿using CourseProject.Repositories.Abstractions;
+using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +8,12 @@ namespace CourseProject.Controllers
     public class ShoesController : Controller
     {
         private IShoesService shoesService;
+        private IBrandsService brandsService;
 
-        public ShoesController(IShoesService service)
+        public ShoesController(IShoesService service, IBrandsService brandsService)
         {
             this.shoesService = service;
+            this.brandsService = brandsService;
         }
 
         public IActionResult AllShoes()
@@ -26,9 +29,15 @@ namespace CourseProject.Controllers
 
         public IActionResult Edit(int? ShoeId)
         {
+
+            var brands = this.brandsService.GetAll().ToList();
+
             if (!ShoeId.HasValue)
             {
-                return View(new ShoeCreateEditViewModel());
+                return View(new ShoeCreateEditViewModel()
+                {
+                    BrandsList = brands
+                });
             }
             else
             {
@@ -45,11 +54,11 @@ namespace CourseProject.Controllers
                     {
                         Id = ShoeId.Value,
                         BrandId = model.BrandId,
-                        Brand = model.Brand,
                         Name = model.Name,
                         CategoryId = model.CategoryId,
                         ImageUrl = model.ImageUrl,
-                        Price = model.Price
+                        Price = model.Price,
+                        BrandsList = brands
                     });
                 }
             }
@@ -60,9 +69,20 @@ namespace CourseProject.Controllers
         public IActionResult Edit(ShoeCreateEditViewModel model)
         {
 
+            var brands = this.brandsService.GetAll().ToList();
+
             if (!ModelState.IsValid)
             {
-                return View(model);
+                Console.WriteLine("errororr");
+                return View(new ShoeCreateEditViewModel(){
+                    Id = model.Id,
+                    BrandId = model.BrandId,
+                    Name = model.Name,
+                    CategoryId = model.CategoryId,
+                    ImageUrl = model.ImageUrl,
+                    Price = model.Price,
+                    BrandsList = brands
+                });
             }
 
             if (model.Id == 0)

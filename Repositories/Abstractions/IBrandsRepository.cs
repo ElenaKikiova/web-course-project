@@ -7,8 +7,8 @@ namespace CourseProject.Repositories.Abstractions
         void Add(Brand Brand);
         IQueryable<Brand> GetAll();
         Brand Get(int BrandId);
-        void Update(Shoe shoe);
-        void Delete(int ShoeId);
+        void Update(Brand brand);
+        void Delete(int BrandId);
 
 
     }
