@@ -8,9 +8,10 @@
 <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Shoes")'">Create new </button>
 
 <div class="shoes">
-@foreach (var item in Model) {
-    <div class="shoe">
-            <div class="img" style="background-image: url(@item.ImageUrl)" ></div>
+    @foreach (var item in Model)
+    {
+        <div class="shoe">
+            <div class="img" style="background-image: url(@item.ImageUrl)"></div>
             <div class="info">
                 <div class="title">
                     @Html.ActionLink(@item.Name, "Details", new { ShoeId=item.Id })

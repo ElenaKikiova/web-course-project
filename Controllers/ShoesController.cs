@@ -1,8 +1,6 @@
-﻿using CourseProject.Repositories.Abstractions;
-using CourseProject.Services.Abstractions;
+﻿using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace CourseProject.Controllers
 {

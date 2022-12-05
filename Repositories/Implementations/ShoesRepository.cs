@@ -7,6 +7,7 @@ namespace CourseProject.Repositories.Implementations
     public class ShoesRepository : IShoesRepository
     {
         private readonly NoFakeShoesDbContext shoesDbContext;
+
         private readonly DbSet<Shoe> dbSet;
 
         public ShoesRepository(NoFakeShoesDbContext context)
@@ -35,7 +36,7 @@ namespace CourseProject.Repositories.Implementations
         {
             Shoe current = Get(shoe.Id);
 
-            if(current != null)
+            if (current != null)
             {
                 this.shoesDbContext.Entry(current).State = EntityState.Detached;
             }

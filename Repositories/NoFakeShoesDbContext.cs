@@ -1,6 +1,5 @@
 ﻿using CourseProject.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CourseProject.Repositories
 {
