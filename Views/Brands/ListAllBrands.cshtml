@@ -1,0 +1,29 @@
+﻿@model ICollection<CourseProject.ViewModels.Brands.BrandDetailViewModel>
+
+@{
+    ViewData["Title"] = "Suppliers";
+}
+
+<button class="btn btn-primary" onclick="location.href='@Url.Action("CreateShoeSupplier")'">Create new </button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Supplier</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.BrandName</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditShoeSupplier", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "ShoeSupplierDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteShoeSupplier", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
