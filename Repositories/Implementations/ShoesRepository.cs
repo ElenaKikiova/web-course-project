@@ -24,13 +24,16 @@ namespace CourseProject.Repositories.Implementations
 
         public Shoe Get(int ShoeId)
         {
-            return this.dbSet.Find(ShoeId);
+            Shoe shoe = this.dbSet.Include(shoe => shoe.Shoe_ShoeSuppliers)
+                 .FirstOrDefault(shoe => shoe.Id == ShoeId);
+            return shoe;
         }
 
         public IQueryable<Shoe> GetAll()
         {
             return dbSet;
         }
+
 
         public void Update(Shoe shoe)
         {
@@ -42,13 +45,23 @@ namespace CourseProject.Repositories.Implementations
             }
 
             this.shoesDbContext.Entry(shoe).State = EntityState.Modified;
+
+            this.shoesDbContext.Shoe_ShoeSuppliers.RemoveRange(current.Shoe_ShoeSuppliers);
+
+            this.shoesDbContext.SaveChanges();
+
+            this.shoesDbContext.Shoe_ShoeSuppliers.AddRange(current.Shoe_ShoeSuppliers);
+
             this.shoesDbContext.SaveChanges();
         }
         public void Delete(int ShoeId)
         {
-            Shoe shoe = Get(ShoeId);
+            Shoe shoe = this.dbSet.Include(shoe => shoe.Shoe_ShoeSuppliers)
+                 .FirstOrDefault(shoe => shoe.Id == ShoeId);
+
             if (shoe != null)
             {
+                this.shoesDbContext.Shoe_ShoeSuppliers.RemoveRange(shoe.Shoe_ShoeSuppliers);
                 this.dbSet.Remove(shoe);
             }
             this.shoesDbContext.SaveChanges();
