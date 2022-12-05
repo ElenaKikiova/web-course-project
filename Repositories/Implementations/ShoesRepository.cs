@@ -26,12 +26,7 @@ namespace CourseProject.Repositories.Implementations
             return this.dbSet.Find(ShoeId);
         }
 
-        public List<Shoe> GetAll()
-        {
-            return this.dbSet.ToList<Shoe>();
-        }
-
-        public IQueryable<Shoe> GetShoeQueryable()
+        public IQueryable<Shoe> GetAll()
         {
             return dbSet;
         }

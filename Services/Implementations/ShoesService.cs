@@ -8,7 +8,6 @@ namespace CourseProject.Services.Implementations
 {
     public class ShoesService : IShoesService
     {
-
         private readonly IShoesRepository shoesRepository;
 
         public ShoesService(IShoesRepository repository)
@@ -16,44 +15,9 @@ namespace CourseProject.Services.Implementations
             this.shoesRepository = repository;
         }
 
-        public List<ShoeDetailsViewModel> GetAll()
-        {
-            return this.shoesRepository.GetAll().Select(shoe => new ShoeDetailsViewModel
-            {
-                Id = shoe.Id,
-                Name = shoe.Name,
-                Price = shoe.Price,
-                ImageUrl = shoe.ImageUrl,
-                CategoryId = shoe.CategoryId,
-                BrandId = shoe.BrandId,
-            }).ToList();
-        }
-
         public ShoeDetailsViewModel Get(int ShoeId)
         {
-            Shoe shoe = this.shoesRepository.Get(ShoeId);
-             
-
-            if (shoe == null)
-            {
-                return null;
-            }
-
-            ShoeDetailsViewModel shoeDetails = new ShoeDetailsViewModel
-            {
-                Id= shoe.Id,
-                Name= shoe.Name,
-                Price= shoe.Price,
-                BrandId= shoe.BrandId,
-                CategoryId= shoe.CategoryId,
-                ImageUrl= shoe.ImageUrl
-            };
-            return shoeDetails;
-        } 
-
-        public ShoeDetailsViewModel GetShoeWithRelations(int ShoeId)
-        {
-            var shoeInDatabase =  shoesRepository.GetShoeQueryable()
+            var shoeInDatabase = shoesRepository.GetAll()
                 .Include(shoe => shoe.Ratings)
                 .FirstOrDefault(shoe => shoe.Id == ShoeId);
 
@@ -71,9 +35,9 @@ namespace CourseProject.Services.Implementations
             };
         }
 
-        public List<ShoeDetailsViewModel> GetAllShoesWithRelations(int ShoeId)
+        public List<ShoeDetailsViewModel> GetAll()
         {
-            return shoesRepository.GetShoeQueryable()
+            return shoesRepository.GetAll()
                 .Include(shoe => shoe.Ratings)
                 .Select(shoe => new ShoeDetailsViewModel
                 {

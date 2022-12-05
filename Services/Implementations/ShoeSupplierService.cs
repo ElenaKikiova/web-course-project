@@ -78,7 +78,7 @@ namespace CourseProject.Services.Implementations
                 SupplierName = shoeSupplier.SupplierName,
             };
 
-            List<Shoe> shoes = shoesRepository.GetAll();
+            List<Shoe> shoes = shoesRepository.GetAll().ToList();
 
             viewModel.Shoes = shoes.Select(shoe => new SelectableShoesViewModel
             {

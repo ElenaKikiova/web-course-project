@@ -22,7 +22,7 @@ namespace CourseProject.Controllers
         }
         public IActionResult Details(int ShoeId)
         {
-            var model = this.shoesService.GetShoeWithRelations(ShoeId);
+            var model = this.shoesService.Get(ShoeId);
             return View(model);
         }
 
@@ -50,7 +50,7 @@ namespace CourseProject.Controllers
                         Name = model.Name,
                         CategoryId = model.CategoryId,
                         ImageUrl = model.ImageUrl,
-                        Price = model.Price,
+                        Price = model.Price
                     });
                 }
             }

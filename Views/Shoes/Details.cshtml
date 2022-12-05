@@ -17,7 +17,7 @@
                 <div class="brand">@Html.DisplayFor(model => model.BrandId)</div>
                 <div class="category">@Html.DisplayFor(model => model.CategoryId)</div>
                 <div class="price">@Html.DisplayFor(model => model.Price) BGN</div>
-                <div class="rate">@Html.DisplayFor(model => model.Rating) %</div>
+                <div class="rate">@Html.DisplayFor(model => model.Rating)</div>
                 <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Cart", "Add", new { ShoeId = Model.Id })'">Add to cart</button>
                 <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Edit", new { ShoeId = Model.Id })'">Edit</button>
             </div>
