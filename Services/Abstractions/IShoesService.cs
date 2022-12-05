@@ -8,6 +8,8 @@ namespace CourseProject.Services.Abstractions
 
         ShoeDetailsViewModel Get(int ShoeId);
 
+        ShoeDetailsViewModel GetShoeWithRelations(int ShoeId);
+
         List<SelectableShoesViewModel> GetSelectableShoes();
 
         void Add(ShoeCreateEditViewModel model);

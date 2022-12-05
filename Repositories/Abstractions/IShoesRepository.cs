@@ -6,6 +6,7 @@ namespace CourseProject.Repositories.Abstractions
     {
         void Add(Shoe shoe);
         Shoe Get(int ShoeId);
+        IQueryable<Shoe> GetShoeQueryable();
         List<Shoe> GetAll();
         void Update(Shoe shoe);
         void Delete(int ShoeId);

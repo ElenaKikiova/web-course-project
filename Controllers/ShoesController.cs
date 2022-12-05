@@ -22,7 +22,7 @@ namespace CourseProject.Controllers
         }
         public IActionResult Details(int ShoeId)
         {
-            var model = this.shoesService.Get(ShoeId);
+            var model = this.shoesService.GetShoeWithRelations(ShoeId);
             return View(model);
         }
 

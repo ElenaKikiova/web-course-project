@@ -31,6 +31,11 @@ namespace CourseProject.Repositories.Implementations
             return this.dbSet.ToList<Shoe>();
         }
 
+        public IQueryable<Shoe> GetShoeQueryable()
+        {
+            return dbSet;
+        }
+
         public void Update(Shoe shoe)
         {
             Shoe current = Get(shoe.Id);

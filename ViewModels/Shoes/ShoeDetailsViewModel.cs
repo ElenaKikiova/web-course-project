@@ -1,4 +1,6 @@
-﻿namespace CourseProject.ViewModels.Shoes
+﻿using CourseProject.Models;
+
+namespace CourseProject.ViewModels.Shoes
 {
     public class ShoeDetailsViewModel
     {
@@ -9,6 +11,7 @@
         public string ImageUrl { get; set; }
         public string Name { get; set; }
         public float Price { get; set; }
+        public double Rating { get; set; }
     }
 }
 
