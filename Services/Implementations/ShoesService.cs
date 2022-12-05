@@ -2,6 +2,7 @@
 using CourseProject.Repositories.Abstractions;
 using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
+using CourseProject.ViewModels.ShoeSuppliers;
 using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.Services.Implementations
@@ -47,6 +48,7 @@ namespace CourseProject.Services.Implementations
                     BrandId = shoe.BrandId,
                     CategoryId = shoe.CategoryId,
                     ImageUrl = shoe.ImageUrl,
+                    Brand = shoe.Brand,
                     Rating = shoe.Ratings.Count == 0 ? 0 : shoe.Ratings.Select(rating => rating.Rate).Average()
                 }).ToList();
         }
@@ -55,7 +57,7 @@ namespace CourseProject.Services.Implementations
         {
             Shoe shoe = this.shoesRepository.Get(ShoeId);
 
-            Console.WriteLine(shoe);
+            ICollection<Shoe_ShoeSupplier> shoeSupplier = shoe.Shoe_ShoeSuppliers;
 
             if (shoe == null)
             {
@@ -70,8 +72,10 @@ namespace CourseProject.Services.Implementations
                 BrandId= shoe.BrandId,
                 CategoryId= shoe.CategoryId,
                 ImageUrl= shoe.ImageUrl,
+                Brand = shoe.Brand,
                 ShoeSuppliers = shoe.Shoe_ShoeSuppliers.ToList<Shoe_ShoeSupplier>()
             };
+
             return shoeDetails;
         }
 

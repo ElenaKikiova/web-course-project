@@ -1,4 +1,5 @@
-﻿using Microsoft.Build.Framework;
+﻿using CourseProject.Models;
+using Microsoft.Build.Framework;
 
 namespace CourseProject.ViewModels.Shoes
 {
@@ -13,7 +14,9 @@ namespace CourseProject.ViewModels.Shoes
         public float Price { get; set; }
 
         [Required]
-        public int BrandId { get; set; }
+        public int BrandId { get; set; 
+
+        public Brand Brand { get; set; }
 
         [Required]
         public int CategoryId { get; set; }

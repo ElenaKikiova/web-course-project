@@ -14,7 +14,7 @@
             <img src=@Html.DisplayFor(model => model.ImageUrl) />
             <div class="details">
                 <h4 class="title">@Html.DisplayFor(model => model.Name)</h4>
-                <div class="brand">@Html.DisplayFor(model => model.BrandId)</div>
+                <div class="brand">@Html.DisplayFor(model => model.Brand.BrandName)</div>
                 <div class="category">@Html.DisplayFor(model => model.CategoryId)</div>
                 <div class="price">@Html.DisplayFor(model => model.Price) BGN</div>
                 <div class="rate">@Html.DisplayFor(model => model.Rating)</div>

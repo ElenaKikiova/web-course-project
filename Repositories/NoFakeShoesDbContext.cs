@@ -16,6 +16,10 @@ namespace CourseProject.Repositories
 
         public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
 
+
+        public DbSet<Brand> Brands { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -25,6 +29,15 @@ namespace CourseProject.Repositories
                 .HasForeignKey(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+
+
+            modelBuilder.Entity<Brand>()
+                .HasMany(brand => brand.Shoes)
+                .WithOne(shoe => shoe.Brand)
+                .HasForeignKey(shoe => shoe.BrandId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
             modelBuilder.Entity<ShoeSupplier>()
                 .HasMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
                 .WithOne()
@@ -32,11 +45,11 @@ namespace CourseProject.Repositories
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Shoe_ShoeSupplier>()
-                .HasOne(shoe_shoeSupplier => shoe_shoeSupplier.Shoe)
+                .HasOne(shoe_ShoeSupplier => shoe_ShoeSupplier.Shoe)
                 .WithMany(shoe => shoe.Shoe_ShoeSuppliers);
 
             modelBuilder.Entity<Shoe_ShoeSupplier>()
-                .HasOne(shoe_shoeSupplier => shoe_shoeSupplier.ShoeSupplier)
+                .HasOne(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeSupplier)
                 .WithMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers);
 
             modelBuilder.Entity<Shoe>()

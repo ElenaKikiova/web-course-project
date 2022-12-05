@@ -45,6 +45,7 @@ namespace CourseProject.Controllers
                     {
                         Id = ShoeId.Value,
                         BrandId = model.BrandId,
+                        Brand = model.Brand,
                         Name = model.Name,
                         CategoryId = model.CategoryId,
                         ImageUrl = model.ImageUrl,

@@ -3,6 +3,7 @@ using CourseProject.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseProject.Migrations
 {
     [DbContext(typeof(NoFakeShoesDbContext))]
-    partial class NoFakeShoesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221205125105_Brands")]
+    partial class Brands
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,27 +22,6 @@ namespace CourseProject.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("CourseProject.Models.Rating", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<double>("Rate")
-                        .HasColumnType("float");
-
-                    b.Property<int>("ShoeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ShoeId");
-
-                    b.ToTable("Ratings");
-                });
 
             modelBuilder.Entity("CourseProject.Models.Brand", b =>
                 {
@@ -131,17 +112,6 @@ namespace CourseProject.Migrations
                     b.ToTable("ShoeSuppliers");
                 });
 
-            modelBuilder.Entity("CourseProject.Models.Rating", b =>
-                {
-                    b.HasOne("CourseProject.Models.Shoe", "Shoe")
-                        .WithMany("Ratings")
-                        .HasForeignKey("ShoeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Shoe");
-                });
-
             modelBuilder.Entity("CourseProject.Models.Shoe", b =>
                 {
                     b.HasOne("CourseProject.Models.Brand", "Brand")
@@ -179,8 +149,6 @@ namespace CourseProject.Migrations
 
             modelBuilder.Entity("CourseProject.Models.Shoe", b =>
                 {
-                    b.Navigation("Ratings");
-
                     b.Navigation("Shoe_ShoeSuppliers");
                 });
 
