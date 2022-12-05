@@ -128,13 +128,13 @@ namespace CourseProject.Migrations
                     b.HasOne("CourseProject.Models.Shoe", "Shoe")
                         .WithMany("Shoe_ShoeSuppliers")
                         .HasForeignKey("ShoeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CourseProject.Models.ShoeSupplier", "ShoeSupplier")
                         .WithMany("Shoe_ShoeSuppliers")
                         .HasForeignKey("ShoeSupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Shoe");

@@ -10,8 +10,15 @@ namespace CourseProject.Repositories
 
         }
 
+        public DbSet<Shoe> Shoes { get; set; }
+
+        public DbSet<ShoeSupplier> ShoeSuppliers { get; set; }
+
+        public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Shoe>()
                 .HasMany(shoe => shoe.Shoe_ShoeSuppliers)
                 .WithOne()
@@ -48,7 +55,5 @@ namespace CourseProject.Repositories
         public DbSet<ShoeSupplier> ShoeSuppliers { get; set; }
 
         public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
-
-        public DbSet<Rating> Ratings { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿
+﻿using CourseProject.Models;
+
 namespace CourseProject.ViewModels.Shoes
 {
     public class ShoeDetailsViewModel

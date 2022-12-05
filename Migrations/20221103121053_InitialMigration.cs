@@ -15,7 +15,7 @@ namespace CourseProject.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    BrandId = table.Column<int>(type: "int", nullable: false),
+                    ShoeSupplierId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<float>(type: "real", nullable: false)
                 },

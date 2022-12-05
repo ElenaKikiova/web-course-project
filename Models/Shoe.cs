@@ -2,6 +2,8 @@
 {
     public class Shoe
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; } 
         public int CategoryId { get; set; }
         public int BrandId { get; set; }

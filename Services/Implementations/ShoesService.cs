@@ -51,6 +51,30 @@ namespace CourseProject.Services.Implementations
                 }).ToList();
         }
 
+        public ShoeDetailsViewModel Get(int ShoeId)
+        {
+            Shoe shoe = this.shoesRepository.Get(ShoeId);
+
+            Console.WriteLine(shoe);
+
+            if (shoe == null)
+            {
+                return null;
+            }
+
+            ShoeDetailsViewModel shoeDetails = new ShoeDetailsViewModel
+            {
+                Id= shoe.Id,
+                Name= shoe.Name,
+                Price= shoe.Price,
+                BrandId= shoe.BrandId,
+                CategoryId= shoe.CategoryId,
+                ImageUrl= shoe.ImageUrl,
+                ShoeSuppliers = shoe.Shoe_ShoeSuppliers.ToList<Shoe_ShoeSupplier>()
+            };
+            return shoeDetails;
+        }
+
         public List<SelectableShoesViewModel> GetSelectableShoes()
         {
             return this.shoesRepository.GetAll().Select(shoe => new SelectableShoesViewModel
