@@ -1,7 +1,6 @@
 ﻿using CourseProject.Models;
 using CourseProject.Repositories.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace CourseProject.Repositories.Implementations
 {

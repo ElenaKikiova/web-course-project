@@ -1,8 +1,6 @@
-﻿using CourseProject.Repositories.Abstractions;
-using CourseProject.Services.Abstractions;
+﻿using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace CourseProject.Controllers
 {
@@ -50,7 +48,7 @@ namespace CourseProject.Controllers
                         Name = model.Name,
                         CategoryId = model.CategoryId,
                         ImageUrl = model.ImageUrl,
-                        Price = model.Price,
+                        Price = model.Price
                     });
                 }
             }

@@ -2,12 +2,12 @@
 using CourseProject.Repositories.Abstractions;
 using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
+using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.Services.Implementations
 {
     public class ShoesService : IShoesService
     {
-
         private readonly IShoesRepository shoesRepository;
 
         public ShoesService(IShoesRepository repository)
@@ -15,40 +15,40 @@ namespace CourseProject.Services.Implementations
             this.shoesRepository = repository;
         }
 
-        public List<ShoeDetailsViewModel> GetAll()
-        {
-            return this.shoesRepository.GetAll().Select(shoe => new ShoeDetailsViewModel
-            {
-                Id = shoe.Id,
-                Name = shoe.Name,
-                Price = shoe.Price,
-                ImageUrl = shoe.ImageUrl,
-                CategoryId = shoe.CategoryId,
-                BrandId = shoe.BrandId,
-            }).ToList();
-        }
-
         public ShoeDetailsViewModel Get(int ShoeId)
         {
-            Shoe shoe = this.shoesRepository.Get(ShoeId);
+            var shoeInDatabase = shoesRepository.GetAll()
+                .Include(shoe => shoe.Ratings)
+                .FirstOrDefault(shoe => shoe.Id == ShoeId);
 
-            Console.WriteLine(shoe);
+            if (shoeInDatabase == null) return null;
 
-            if (shoe == null)
+            return new ShoeDetailsViewModel
             {
-                return null;
-            }
-
-            ShoeDetailsViewModel shoeDetails = new ShoeDetailsViewModel
-            {
-                Id= shoe.Id,
-                Name= shoe.Name,
-                Price= shoe.Price,
-                BrandId= shoe.BrandId,
-                CategoryId= shoe.CategoryId,
-                ImageUrl= shoe.ImageUrl
+                Id = shoeInDatabase.Id,
+                Name = shoeInDatabase.Name,
+                Price = shoeInDatabase.Price,
+                BrandId = shoeInDatabase.BrandId,
+                CategoryId = shoeInDatabase.CategoryId,
+                ImageUrl = shoeInDatabase.ImageUrl,
+                Rating = shoeInDatabase.Ratings.Count == 0 ? 0 : shoeInDatabase.Ratings.Select(rating => rating.Rate).Average()
             };
-            return shoeDetails;
+        }
+
+        public List<ShoeDetailsViewModel> GetAll()
+        {
+            return shoesRepository.GetAll()
+                .Include(shoe => shoe.Ratings)
+                .Select(shoe => new ShoeDetailsViewModel
+                {
+                    Id = shoe.Id,
+                    Name = shoe.Name,
+                    Price = shoe.Price,
+                    BrandId = shoe.BrandId,
+                    CategoryId = shoe.CategoryId,
+                    ImageUrl = shoe.ImageUrl,
+                    Rating = shoe.Ratings.Count == 0 ? 0 : shoe.Ratings.Select(rating => rating.Rate).Average()
+                }).ToList();
         }
 
         public List<SelectableShoesViewModel> GetSelectableShoes()
