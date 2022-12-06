@@ -14,6 +14,9 @@
             <div class="form-group" hidden>
                 <input asp-for="BrandsList" class="form-control" />
             </div>
+            <div class="form-group" hidden>
+                <input asp-for="CategoriesList" class="form-control" />
+            </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Name</label>
                 <input asp-for="Name" class="form-control" />
@@ -37,8 +40,10 @@
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label">Category </label>
                 <select asp-for="CategoryId" class="form-control">
-                    <option name="Casual" value="1">Casual</option>
-                    <option name="Sport" value="2">Sport</option>
+                    @foreach (var category in Model.CategoriesList)
+                    {
+                        <option name=@category.CategoryName value=@category.Id>@category.CategoryName</option>
+                    }
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
