@@ -20,6 +20,7 @@ namespace CourseProject.Services.Implementations
         {
             var shoeInDatabase = shoesRepository.GetAll()
                 .Include(shoe => shoe.Ratings)
+                .Include(shoe => shoe.Brand)
                 .FirstOrDefault(shoe => shoe.Id == ShoeId);
 
             if (shoeInDatabase == null) return null;
@@ -32,6 +33,7 @@ namespace CourseProject.Services.Implementations
                 BrandId = shoeInDatabase.BrandId,
                 CategoryId = shoeInDatabase.CategoryId,
                 ImageUrl = shoeInDatabase.ImageUrl,
+                Brand = shoeInDatabase.Brand,
                 Rating = shoeInDatabase.Ratings.Count == 0 ? 0 : shoeInDatabase.Ratings.Select(rating => rating.Rate).Average()
             };
         }
@@ -51,32 +53,6 @@ namespace CourseProject.Services.Implementations
                     Brand = shoe.Brand,
                     Rating = shoe.Ratings.Count == 0 ? 0 : shoe.Ratings.Select(rating => rating.Rate).Average()
                 }).ToList();
-        }
-
-        public ShoeDetailsViewModel Get(int ShoeId)
-        {
-            Shoe shoe = this.shoesRepository.Get(ShoeId);
-
-            ICollection<Shoe_ShoeSupplier> shoeSupplier = shoe.Shoe_ShoeSuppliers;
-
-            if (shoe == null)
-            {
-                return null;
-            }
-
-            ShoeDetailsViewModel shoeDetails = new ShoeDetailsViewModel
-            {
-                Id= shoe.Id,
-                Name= shoe.Name,
-                Price= shoe.Price,
-                BrandId= shoe.BrandId,
-                CategoryId= shoe.CategoryId,
-                ImageUrl= shoe.ImageUrl,
-                Brand = shoe.Brand,
-                ShoeSuppliers = shoe.Shoe_ShoeSuppliers.ToList<Shoe_ShoeSupplier>()
-            };
-
-            return shoeDetails;
         }
 
         public List<SelectableShoesViewModel> GetSelectableShoes()

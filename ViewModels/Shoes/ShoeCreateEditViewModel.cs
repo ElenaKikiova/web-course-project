@@ -15,9 +15,7 @@ namespace CourseProject.ViewModels.Shoes
         public float Price { get; set; }
 
         [Required]
-        public int BrandId { get; set; 
-
-        public Brand Brand { get; set; }
+        public int BrandId { get; set; }
 
         [Required]
         public int CategoryId { get; set; }

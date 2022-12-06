@@ -2,6 +2,7 @@
 using CourseProject.Services.Abstractions;
 using CourseProject.ViewModels.Shoes;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CourseProject.Controllers
 {
@@ -73,7 +74,10 @@ namespace CourseProject.Controllers
 
             if (!ModelState.IsValid)
             {
-                Console.WriteLine("errororr");
+                Console.WriteLine("Error");
+                Console.WriteLine(string.Join("; ", ModelState.Values
+                                        .SelectMany(x => x.Errors)
+                                        .Select(x => x.ErrorMessage)));
                 return View(new ShoeCreateEditViewModel(){
                     Id = model.Id,
                     BrandId = model.BrandId,

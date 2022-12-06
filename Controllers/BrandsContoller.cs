@@ -29,7 +29,6 @@ namespace CourseProject.Controllers
 
         public IActionResult Edit(int? BrandId)
         {
-            Console.WriteLine('e');
             if (!BrandId.HasValue)
             {
                 Console.WriteLine(BrandId);
@@ -63,7 +62,6 @@ namespace CourseProject.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
-                Console.WriteLine('p');
             }
 
             if (model.Id == 0)

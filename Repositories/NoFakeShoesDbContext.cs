@@ -16,7 +16,7 @@ namespace CourseProject.Repositories
 
         public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
 
-
+        public DbSet<Rating> Ratings { get; set; }
         public DbSet<Brand> Brands { get; set; }
 
 
@@ -63,10 +63,5 @@ namespace CourseProject.Repositories
                 .WithMany(shoe => shoe.Ratings);
         }
 
-        public DbSet<Shoe> Shoes { get; set; }
-
-        public DbSet<ShoeSupplier> ShoeSuppliers { get; set; }
-
-        public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
     }
 }

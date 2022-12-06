@@ -30,6 +30,8 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "EditShoeSupplier", new { id = Model.Id }) |
-    <a asp-action="ListAllShoeSuppliers">Back to List</a>
+    <div class="actions">
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("EditShoeSupplier", "ShoeSupplier", new { id = Model.Id })'">Edit</button>
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("ListAllShoeSuppliers", "ShoeSupplier")'">Back to List</button>
+    </div>
 </div>

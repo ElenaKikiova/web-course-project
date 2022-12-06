@@ -18,14 +18,6 @@ namespace CourseProject.Services.Implementations
 
         public List<BrandDetailViewModel> GetAll()
         {
-            /*return this.brandsRepository.GetAll()
-                 .Include(brand => brand.Shoes)
-                 .Select(brand => new BrandDetailViewModel
-                 {
-                     Id = brand.Id,
-                     BrandName = brand.BrandName,
-                     Shoes = brand.Shoes.ToList()
-                 }).ToList();*/
 
             return this.brandsRepository.GetAll()
                  .Select(brand => new BrandDetailViewModel

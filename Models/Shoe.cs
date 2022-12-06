@@ -1,4 +1,7 @@
-﻿namespace CourseProject.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CourseProject.Models
 {
     public class Shoe
     {
@@ -15,8 +18,6 @@
         public float Price { get; set; }
 
         public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
-
-        public virtual ICollection<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
 
         public virtual Brand Brand { get; set; }
 

@@ -16,7 +16,6 @@ C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\Cours
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\CourseProject.RazorAssemblyInfo.cs
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\scopedcss\bundle\CourseProject.styles.css
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\scopedcss\projectbundle\CourseProject.bundle.scp.css
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\CourseProject.dll
