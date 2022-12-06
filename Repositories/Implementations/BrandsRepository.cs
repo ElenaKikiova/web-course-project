@@ -44,9 +44,19 @@ namespace CourseProject.Repositories.Implementations
             this.shoesDbContext.SaveChanges();
         }
 
-        public void Update(Brand brand)
+        public void Update(Brand Brand)
         {
-            throw new NotImplementedException();
+            Brand current = Get(Brand.Id);
+
+            if (current != null)
+            {
+                this.shoesDbContext.Entry(current).State = EntityState.Detached;
+            }
+
+            this.shoesDbContext.Entry(Brand).State = EntityState.Modified;
+
+
+            this.shoesDbContext.SaveChanges();
         }
     }
 
