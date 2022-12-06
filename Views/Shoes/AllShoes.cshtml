@@ -13,13 +13,14 @@
         <div class="shoe">
             <div class="img" style="background-image: url(@item.ImageUrl)"></div>
             <div class="info">
+                <div class="brand">@item.Brand.BrandName</div>
                 <div class="title">
                     @Html.ActionLink(@item.Name, "Details", new { ShoeId=item.Id })
                 </div>
                 <div class="price">@item.Price BGN</div>
                 <div class="actions">
-                    <button>@Html.ActionLink("Edit", "Edit", new { ShoeId=item.Id }) </button>
-                    <button>@Html.ActionLink("Delete", "Delete", new { ShoeId=item.Id })</button>
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Shoes", new { ShoeId=item.Id })'">Edit </button>
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("Delete", "Shoes", new { ShoeId=item.Id })'">Delete</button>
                 </div>
             </div>
         </div>

@@ -15,12 +15,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Elena\Documents\web-course-project\CourseProject
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Brands/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Brands/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Brands/ListAllBrands.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXExpc3RBbGxCcmFuZHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Profile/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Ratings/Rate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nc1xSYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -46,10 +66,6 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-xqnuuovobb
 
 [C:/Users/Elena/Documents/web-course-project/CourseProject/Views/Shoes/AllShoes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvZXNcQWxsU2hvZXMuY3NodG1s

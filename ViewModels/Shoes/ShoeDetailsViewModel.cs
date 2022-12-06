@@ -1,4 +1,5 @@
-﻿
+﻿using CourseProject.Models;
+
 namespace CourseProject.ViewModels.Shoes
 {
     public class ShoeDetailsViewModel
@@ -8,6 +9,8 @@ namespace CourseProject.ViewModels.Shoes
         public int CategoryId { get; set; }
 
         public int BrandId { get; set; }
+
+        public Brand Brand { get; set; }
 
         public string ImageUrl { get; set; }
 

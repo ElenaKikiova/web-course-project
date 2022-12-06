@@ -1,7 +1,12 @@
-﻿namespace CourseProject.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CourseProject.Models
 {
     public class Shoe_ShoeSupplier
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int ShoeId { get; set; }

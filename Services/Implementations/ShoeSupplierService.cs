@@ -28,6 +28,8 @@ namespace CourseProject.Services.Implementations
 
             if (shoeSupplierInDB == null) return null;
 
+            
+
             return new ShoeSupplierDetailViewModel
             {
                 Id = shoeSupplierInDB.Id,

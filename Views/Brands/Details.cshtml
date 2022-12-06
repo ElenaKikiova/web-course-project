@@ -1,0 +1,30 @@
+@model CourseProject.ViewModels.Brands.BrandDetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>
+        @Model.BrandName
+    </h4>
+    <hr />
+    <dl class="row">
+        <h5>@Model.Shoes.Count shoes by this brand: </h5>
+        <ul>
+                @foreach(var item in Model.Shoes)
+                {
+                    <li>
+                        @Html.ActionLink(@item.Name, "Details", "Shoes", new { ShoeId=item.Id })
+                    </li>
+                }
+        </ul>
+    </dl>
+</div>
+<div>
+    <div class="actions">
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Brand", new { BrandId = Model.Id })'">Edit</button>
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("ListAllBrands", "Brands")'">Back to list</button>
+    </div>
+        
+</div>

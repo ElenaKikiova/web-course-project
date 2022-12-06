@@ -10,13 +10,33 @@ namespace CourseProject.Repositories
 
         }
 
+        public DbSet<Shoe> Shoes { get; set; }
+
+        public DbSet<ShoeSupplier> ShoeSuppliers { get; set; }
+
+        public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
+
+        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Shoe>()
                 .HasMany(shoe => shoe.Shoe_ShoeSuppliers)
                 .WithOne()
                 .HasForeignKey(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
+
+            modelBuilder.Entity<Brand>()
+                .HasMany(brand => brand.Shoes)
+                .WithOne(shoe => shoe.Brand)
+                .HasForeignKey(shoe => shoe.BrandId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<ShoeSupplier>()
                 .HasMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)
@@ -25,11 +45,11 @@ namespace CourseProject.Repositories
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Shoe_ShoeSupplier>()
-                .HasOne(shoe_shoeSupplier => shoe_shoeSupplier.Shoe)
+                .HasOne(shoe_ShoeSupplier => shoe_ShoeSupplier.Shoe)
                 .WithMany(shoe => shoe.Shoe_ShoeSuppliers);
 
             modelBuilder.Entity<Shoe_ShoeSupplier>()
-                .HasOne(shoe_shoeSupplier => shoe_shoeSupplier.ShoeSupplier)
+                .HasOne(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeSupplier)
                 .WithMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers);
 
             modelBuilder.Entity<Shoe>()
@@ -43,12 +63,5 @@ namespace CourseProject.Repositories
                 .WithMany(shoe => shoe.Ratings);
         }
 
-        public DbSet<Shoe> Shoes { get; set; }
-
-        public DbSet<ShoeSupplier> ShoeSuppliers { get; set; }
-
-        public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
-
-        public DbSet<Rating> Ratings { get; set; }
     }
 }
