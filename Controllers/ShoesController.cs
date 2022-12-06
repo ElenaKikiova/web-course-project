@@ -40,7 +40,8 @@ namespace CourseProject.Controllers
             {
                 return View(new ShoeCreateEditViewModel()
                 {
-                    BrandsList = brands
+                    BrandsList = brands,
+                    CategoriesList = categories
                 });
             }
             else
