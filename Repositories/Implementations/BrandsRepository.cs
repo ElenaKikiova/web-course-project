@@ -34,7 +34,8 @@ namespace CourseProject.Repositories.Implementations
 
         public void Delete(int BrandId)
         {
-            Brand brand = this.dbSet.FirstOrDefault(brand => brand.Id == BrandId);
+            Brand brand = this.dbSet.Include(brand => brand.Shoes)
+                .FirstOrDefault(brand => brand.Id == BrandId);
 
             if (brand != null)
             {

@@ -6,6 +6,8 @@
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; } 
         public int CategoryId { get; set; }
+
+        [ForeignKey("Brand")]
         public int BrandId { get; set; }
 
         public string ImageUrl { get; set; }

@@ -35,7 +35,7 @@ namespace CourseProject.Repositories
                 .HasMany(brand => brand.Shoes)
                 .WithOne(shoe => shoe.Brand)
                 .HasForeignKey(shoe => shoe.BrandId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
             modelBuilder.Entity<ShoeSupplier>()
