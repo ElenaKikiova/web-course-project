@@ -10,11 +10,13 @@ namespace CourseProject.Controllers
     {
         private IShoesService shoesService;
         private IBrandsService brandsService;
+        private ICategoriesService categoriesService;
 
-        public ShoesController(IShoesService service, IBrandsService brandsService)
+        public ShoesController(IShoesService service, IBrandsService brandsService, ICategoriesService categoriesService)
         {
             this.shoesService = service;
             this.brandsService = brandsService;
+            this.categoriesService = categoriesService;
         }
 
         public IActionResult AllShoes()
@@ -32,6 +34,7 @@ namespace CourseProject.Controllers
         {
 
             var brands = this.brandsService.GetAll().ToList();
+            var categories = this.categoriesService.GetAll().ToList();
 
             if (!ShoeId.HasValue)
             {
@@ -59,7 +62,8 @@ namespace CourseProject.Controllers
                         CategoryId = model.CategoryId,
                         ImageUrl = model.ImageUrl,
                         Price = model.Price,
-                        BrandsList = brands
+                        BrandsList = brands,
+                        CategoriesList = categories
                     });
                 }
             }
@@ -71,6 +75,7 @@ namespace CourseProject.Controllers
         {
 
             var brands = this.brandsService.GetAll().ToList();
+            var categories = this.categoriesService.GetAll().ToList();
 
             if (!ModelState.IsValid)
             {
@@ -85,7 +90,8 @@ namespace CourseProject.Controllers
                     CategoryId = model.CategoryId,
                     ImageUrl = model.ImageUrl,
                     Price = model.Price,
-                    BrandsList = brands
+                    BrandsList = brands,
+                    CategoriesList = categories
                 });
             }
 

@@ -21,6 +21,7 @@ namespace CourseProject.Services.Implementations
             var shoeInDatabase = shoesRepository.GetAll()
                 .Include(shoe => shoe.Ratings)
                 .Include(shoe => shoe.Brand)
+                .Include(shoe => shoe.Category)
                 .FirstOrDefault(shoe => shoe.Id == ShoeId);
 
             if (shoeInDatabase == null) return null;
@@ -34,6 +35,7 @@ namespace CourseProject.Services.Implementations
                 CategoryId = shoeInDatabase.CategoryId,
                 ImageUrl = shoeInDatabase.ImageUrl,
                 Brand = shoeInDatabase.Brand,
+                Category = shoeInDatabase.Category,
                 Rating = shoeInDatabase.Ratings.Count == 0 ? 0 : shoeInDatabase.Ratings.Select(rating => rating.Rate).Average()
             };
         }
@@ -42,6 +44,7 @@ namespace CourseProject.Services.Implementations
         {
             return shoesRepository.GetAll()
                 .Include(shoe => shoe.Ratings)
+                .Include(shoe => shoe.Brand)
                 .Select(shoe => new ShoeDetailsViewModel
                 {
                     Id = shoe.Id,
@@ -51,6 +54,7 @@ namespace CourseProject.Services.Implementations
                     CategoryId = shoe.CategoryId,
                     ImageUrl = shoe.ImageUrl,
                     Brand = shoe.Brand,
+                    Category = shoe.Category,
                     Rating = shoe.Ratings.Count == 0 ? 0 : shoe.Ratings.Select(rating => rating.Rate).Average()
                 }).ToList();
         }

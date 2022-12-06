@@ -18,7 +18,8 @@ builder.Services.AddScoped<IShoe_ShoeSupplierRepository, Shoe_ShoeSupplierReposi
 builder.Services.AddScoped<IShoeSupplierService, ShoeSupplierService>();
 builder.Services.AddScoped<IBrandsRepository, BrandsRepository>();
 builder.Services.AddScoped<IBrandsService, BrandsService>();
-
+builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
+builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IRatingsRepository, RatingsRepository>();
 
 builder.Services.AddControllersWithViews();

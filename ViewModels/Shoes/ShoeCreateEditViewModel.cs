@@ -1,5 +1,6 @@
 ﻿using CourseProject.Models;
 using CourseProject.ViewModels.Brands;
+using CourseProject.ViewModels.Categories;
 using Microsoft.Build.Framework;
 
 namespace CourseProject.ViewModels.Shoes
@@ -24,5 +25,6 @@ namespace CourseProject.ViewModels.Shoes
         public string ImageUrl { get; set; }
 
         public List<BrandDetailViewModel> BrandsList { get; set; }
+        public List<CategoryDetailViewModel> CategoriesList { get; set; }
     }
 }
