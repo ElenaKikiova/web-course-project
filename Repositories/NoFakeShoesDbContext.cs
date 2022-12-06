@@ -17,7 +17,10 @@ namespace CourseProject.Repositories
         public DbSet<Shoe_ShoeSupplier> Shoe_ShoeSuppliers { get; set; }
 
         public DbSet<Rating> Ratings { get; set; }
+
         public DbSet<Brand> Brands { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,14 +32,17 @@ namespace CourseProject.Repositories
                 .HasForeignKey(shoe_ShoeSupplier => shoe_ShoeSupplier.ShoeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
-
             modelBuilder.Entity<Brand>()
                 .HasMany(brand => brand.Shoes)
                 .WithOne(shoe => shoe.Brand)
                 .HasForeignKey(shoe => shoe.BrandId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Category>()
+                .HasMany(category => category.Shoes)
+                .WithOne(shoe => shoe.Category)
+                .HasForeignKey(shoe => shoe.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ShoeSupplier>()
                 .HasMany(shoeSupplier => shoeSupplier.Shoe_ShoeSuppliers)

@@ -27,6 +27,7 @@ namespace CourseProject.Repositories.Implementations
             Shoe shoe = this.dbSet
                 .Include(shoe => shoe.Shoe_ShoeSuppliers)
                 .Include(shoe => shoe.Brand)
+                .Include(shoe => shoe.Category)
                 .FirstOrDefault(shoe => shoe.Id == ShoeId);
             return shoe;
         }
