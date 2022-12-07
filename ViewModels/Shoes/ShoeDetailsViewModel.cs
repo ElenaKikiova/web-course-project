@@ -1,4 +1,5 @@
 ﻿using CourseProject.Models;
+using Microsoft.AspNetCore.Components;
 
 namespace CourseProject.ViewModels.Shoes
 {
@@ -21,6 +22,10 @@ namespace CourseProject.ViewModels.Shoes
         public float Price { get; set; }
 
         public double Rating { get; set; }
+
+        public int RatingsCount { get; set; }
+
+
     }
 }
 

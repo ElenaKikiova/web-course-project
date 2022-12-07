@@ -36,7 +36,8 @@ namespace CourseProject.Services.Implementations
                 ImageUrl = shoeInDatabase.ImageUrl,
                 Brand = shoeInDatabase.Brand,
                 Category = shoeInDatabase.Category,
-                Rating = shoeInDatabase.Ratings.Count == 0 ? 0 : shoeInDatabase.Ratings.Select(rating => rating.Rate).Average()
+                Rating = shoeInDatabase.Ratings.Count == 0 ? 0 : Math.Round(shoeInDatabase.Ratings.Select(rating => rating.Rate).Average(), 1),
+                RatingsCount = shoeInDatabase.Ratings.Count
             };
         }
 
@@ -55,7 +56,8 @@ namespace CourseProject.Services.Implementations
                     ImageUrl = shoe.ImageUrl,
                     Brand = shoe.Brand,
                     Category = shoe.Category,
-                    Rating = shoe.Ratings.Count == 0 ? 0 : shoe.Ratings.Select(rating => rating.Rate).Average()
+                    Rating = Math.Round(shoe.Ratings.Count == 0 ? 0 : shoe.Ratings.Select(rating => rating.Rate).Average(), 1),
+                    RatingsCount = shoe.Ratings.Count
                 }).ToList();
         }
 

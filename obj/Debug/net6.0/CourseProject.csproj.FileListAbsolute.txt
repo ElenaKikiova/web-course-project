@@ -264,3 +264,4 @@ C:\Users\Elena\Documents\web-course-project\CourseProject\bin\Debug\net6.0\runti
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\scopedcss\Views\Shoes\AllShoes.cshtml.rz.scp.css
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\scopedcss\Views\Shoes\Details.cshtml.rz.scp.css
 C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\scopedcss\Views\Shoes\Edit.cshtml.rz.scp.css
+C:\Users\Elena\Documents\web-course-project\CourseProject\obj\Debug\net6.0\scopedcss\Views\Ratings\Rate.cshtml.rz.scp.css

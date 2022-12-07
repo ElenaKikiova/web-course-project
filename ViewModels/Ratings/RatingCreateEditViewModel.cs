@@ -1,9 +1,13 @@
-﻿namespace CourseProject.ViewModels.Ratings
+﻿using CourseProject.Models;
+using System.ComponentModel;
+
+namespace CourseProject.ViewModels.Ratings
 {
     public class RatingCreateEditViewModel
     {
         public int ShoeId { get; set; }
 
-        public double Rate { get; set; }
+        [DisplayName("Rating:")]
+        public string RateString { get; set; }
     }
 }
