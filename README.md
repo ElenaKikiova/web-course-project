@@ -11,4 +11,4 @@ Features which the app provides:
 To run the application localy:
   - Run a MS Sql server and in the appsettings.json specify the correct database connection
   - Provide atleast 1 shoe entry in the 'Shoes' table
-  - Run the application with ISExpress
+  - Run the application with IISExpress
