@@ -16,7 +16,12 @@
                 
                 <div class="rate-container">
                     <div class="rate">Rating: </div>
-                    @if (Model.Rating < 2){
+                    @if (Model.Rating == 0)
+                    {
+                        <span>&nbsp;</span>
+                    }
+                    else if(Model.Rating < 2)
+                    {
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Star_rating_1_of_5.png" />
                     }
                     else if (Model.Rating < 3)
