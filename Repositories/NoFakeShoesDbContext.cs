@@ -62,7 +62,7 @@ namespace CourseProject.Repositories
                 .HasMany(shoe => shoe.Ratings)
                 .WithOne()
                 .HasForeignKey(rating => rating.ShoeId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Rating>()
                 .HasOne(rating => rating.Shoe)

@@ -59,12 +59,13 @@ namespace CourseProject.Repositories.Implementations
         }
         public void Delete(int ShoeId)
         {
-            Shoe shoe = this.dbSet.Include(shoe => shoe.Shoe_ShoeSuppliers)
+            Shoe shoe = this.dbSet.Include(shoe => shoe.Shoe_ShoeSuppliers).Include(shoe => shoe.Ratings)
                  .FirstOrDefault(shoe => shoe.Id == ShoeId);
 
             if (shoe != null)
             {
                 this.shoesDbContext.Shoe_ShoeSuppliers.RemoveRange(shoe.Shoe_ShoeSuppliers);
+                this.shoesDbContext.Ratings.RemoveRange(shoe.Ratings);
                 this.dbSet.Remove(shoe);
             }
             this.shoesDbContext.SaveChanges();
